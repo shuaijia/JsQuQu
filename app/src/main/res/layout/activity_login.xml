@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_background">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mh50.0dimens50.0dp"
+            android:background="@color/green_title_backgroundcolor"
+            android:gravity="center"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <!-- 手机号编辑框 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mh46.0dimens46.0dp"
+            android:layout_marginLeft="@dimen/mh10.0dimens10.0dp"
+            android:layout_marginRight="@dimen/mh10.0dimens10.0dp"
+            android:layout_marginTop="@dimen/mh115.0dimens115.0dp"
+            android:background="@color/white_background"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/mh10.0dimens10.0dp"
+                android:text="@string/activity_loginregist_phone"
+                android:textColor="@color/gray_text_color"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_loginactivity_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/activity_loginregist_shuru_phone"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/mh10.0dimens10.0dp"
+                android:background="@null"
+                android:maxLength="11" />
+        </LinearLayout>
+
+        <!-- 密码编辑框 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mh46.0dimens46.0dp"
+            android:layout_marginLeft="@dimen/mh10.0dimens10.0dp"
+            android:layout_marginRight="@dimen/mh10.0dimens10.0dp"
+            android:layout_marginTop="@dimen/mh8.0dimens8.0dp"
+            android:background="@color/white_background"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/mh10.0dimens10.0dp"
+                android:text="@string/activity_loginregist_password"
+                android:textColor="@color/gray_text_color"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_loginactivity_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/mh10.0dimens10.0dp"
+                android:background="@null"
+                android:hint="@string/activity_loginregist_shuru_pwd"
+                android:password="true" />
+        </LinearLayout>
+
+        <!-- 登录按钮 -->
+        <RelativeLayout
+            android:id="@+id/rl_loginactivity_login"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mh46.0dimens46.0dp"
+            android:layout_marginLeft="@dimen/mh10.0dimens10.0dp"
+            android:layout_marginRight="@dimen/mh10.0dimens10.0dp"
+            android:layout_marginTop="@dimen/mh18.0dimens18.0dp"
+            android:background="@color/green_title_backgroundcolor">
+
+            <TextView
+                android:id="@+id/tv_loginactiyity_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/activity_loginregist_login"
+                android:textColor="@color/white_background"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>
