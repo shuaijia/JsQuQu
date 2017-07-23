@@ -28,6 +28,7 @@ public class MainActivity extends FragmentActivity {
 //        FragmentTransaction transaction = manager.beginTransaction();
 //        transaction.add(R.id.rl_main_content, new LessonFragment());
 //        transaction.commit();
+
     }
 
 }
