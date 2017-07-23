@@ -6,7 +6,6 @@
     android:fitsSystemWindows="true"
     tools:context="com.mykj.qupingfang.MainActivity">
 
-
     <LinearLayout
         android:id="@+id/ll_main_tab"
         android:layout_width="match_parent"
