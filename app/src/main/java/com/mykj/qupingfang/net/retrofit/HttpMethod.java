@@ -2,6 +2,7 @@ package com.mykj.qupingfang.net.retrofit;
 
 import android.util.Log;
 
+import com.mykj.qupingfang.domain.home.HomeJp;
 import com.mykj.qupingfang.domain.lesson.Lesson;
 import com.mykj.qupingfang.domain.login.Login;
 
@@ -149,6 +150,22 @@ public class HttpMethod {
      */
     public void getLesson(String grade_id, String course_type, String page,String size,Subscriber<Lesson> subscriber) {
         service.getLesson(grade_id,course_type,page,size)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /**
+     * 获取首页精品数据
+     *
+     * @param grade_id
+     * @param course_type
+     * @param page
+     * @param size
+     * @param subscriber
+     */
+    public void getHomeJp(Subscriber<HomeJp> subscriber) {
+        service.getHomeJp()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);

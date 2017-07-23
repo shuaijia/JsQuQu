@@ -49,6 +49,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         discoverFragment = new DiscoverFragment();
         mineFragment = new MineFragment();
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.rl_main_content, homeFragment)
+                .commitAllowingStateLoss();
 
     }
 

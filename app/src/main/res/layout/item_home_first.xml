@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/mh117.0dimens117.0dp"
+    android:padding="@dimen/mh5.0dimens5.0dp">
+
+    <ImageView
+        android:id="@+id/iv_home_grade"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_home_item"
+        android:scaleType="fitXY"
+        android:src="@mipmap/frgament_lesson_video_bg" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_home_item" />
+
+    <TextView
+        android:id="@+id/tv_home_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_home_grade"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/mh4.0dimens4.0dp"
+        android:text="拔苗助长"
+        android:textColor="#fff"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_home_grade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/mh3.0dimens3.0dp"
+        android:text="一年级 下"
+        android:textColor="#fff"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/tv_home_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/mh3.0dimens3.0dp"
+        android:text="03:39"
+        android:textColor="#fff"
+        android:textSize="10sp" />
+
+    <ImageView
+        android:id="@+id/iv_home_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/activity_home_price" />
+
+</RelativeLayout>
