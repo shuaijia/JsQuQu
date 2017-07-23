@@ -1,20 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="com.mykj.qupingfang.MainActivity">
 
-    <!--<RelativeLayout-->
-        <!--android:id="@+id/rl_main_content"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"></RelativeLayout>-->
-    <fragment
-        android:id="@+id/fragment"
-        android:name="com.mykj.qupingfang.lesson.fragment.LessonFragment"
+
+    <LinearLayout
+        android:id="@+id/ll_main_tab"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="@dimen/mh60.0dimens60.0dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff">
+
+        <RelativeLayout
+            android:id="@+id/rl_main_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_main_home"
+                android:clickable="false"
+                android:layout_width="@dimen/mh40.0dimens40.0dp"
+                android:layout_height="@dimen/mh40.0dimens40.0dp"
+                android:layout_centerHorizontal="true"
+                android:background="#00b763"
+                android:src="@mipmap/aa_home" />
+
+            <TextView
+                android:id="@+id/tv_main_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_main_home"
+                android:clickable="false"
+                android:layout_centerHorizontal="true"
+                android:text="首页" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_main_lesson"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_main_lesson"
+                android:clickable="false"
+                android:layout_width="@dimen/mh40.0dimens40.0dp"
+                android:layout_height="@dimen/mh40.0dimens40.0dp"
+                android:layout_centerHorizontal="true"
+                android:background="#00b763"
+                android:src="@mipmap/aa_lesson" />
+
+            <TextView
+                android:id="@+id/tv_main_lesson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_main_lesson"
+                android:clickable="false"
+                android:layout_centerHorizontal="true"
+                android:text="课程" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_main_discover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_main_discover"
+                android:clickable="false"
+                android:layout_width="@dimen/mh40.0dimens40.0dp"
+                android:layout_height="@dimen/mh40.0dimens40.0dp"
+                android:layout_centerHorizontal="true"
+                android:background="#00b763"
+                android:src="@mipmap/aa_discover" />
+
+            <TextView
+                android:id="@+id/tv_main_discover"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_main_discover"
+                android:clickable="false"
+                android:layout_centerHorizontal="true"
+                android:text="发现" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_main_mine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_main_mine"
+                android:clickable="false"
+                android:layout_width="@dimen/mh40.0dimens40.0dp"
+                android:layout_height="@dimen/mh40.0dimens40.0dp"
+                android:layout_centerHorizontal="true"
+                android:background="#00b763"
+                android:src="@mipmap/aa_mine" />
+
+            <TextView
+                android:id="@+id/tv_main_mine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_main_mine"
+                android:clickable="false"
+                android:layout_centerHorizontal="true"
+                android:text="我的" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ll_main_tab"></RelativeLayout>
 
 </RelativeLayout>

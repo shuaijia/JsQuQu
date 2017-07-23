@@ -13,5 +13,7 @@
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LoginActivity" />
+        android:layout_centerInParent="true"
+        android:textSize="28sp"
+        android:text="趣平方" />
 </RelativeLayout>
