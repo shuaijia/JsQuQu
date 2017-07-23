@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh45.0dimens45.0dp"
+        android:background="#00b763"
+        android:gravity="center"
+        android:text="我的"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f2f2f2"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mh100.0dimens100.0dp"
+                android:layout_marginTop="@dimen/mh10.0dimens10.0dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/iv_head"
+                    android:layout_width="@dimen/mh60.0dimens60.0dp"
+                    android:layout_height="@dimen/mh60.0dimens60.0dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:src="@mipmap/fragment_mine_head" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:layout_toRightOf="@+id/iv_head"
+                    android:text="ID我是康小白"
+                    android:textColor="#454545" />
+
+                <ImageView
+                    android:layout_width="@dimen/mh16.0dimens16.0dp"
+                    android:layout_height="@dimen/mh16.0dimens16.0dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+                    android:src="@mipmap/fragment_mine_rights_next" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mh48.0dimens48.0dp"
+                android:layout_marginTop="@dimen/mh10.0dimens10.0dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/iv_jcbbxz"
+                    android:layout_width="@dimen/mh20.0dimens20.0dp"
+                    android:layout_height="@dimen/mh20.0dimens20.0dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:background="#00b763"
+                    android:src="@mipmap/fragment_mine_version" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:layout_toRightOf="@+id/iv_jcbbxz"
+                    android:text="教材版本选择"
+                    android:textColor="#454545" />
+
+                <ImageView
+                    android:layout_width="@dimen/mh16.0dimens16.0dp"
+                    android:layout_height="@dimen/mh16.0dimens16.0dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+                    android:src="@mipmap/fragment_mine_rights_next" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mh48.0dimens48.0dp"
+                android:layout_marginTop="@dimen/mh1.0dimens1.0dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/iv_xx"
+                    android:layout_width="@dimen/mh20.0dimens20.0dp"
+                    android:layout_height="@dimen/mh20.0dimens20.0dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:background="#00b763"
+                    android:src="@mipmap/fragment_mine_msg" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:layout_toRightOf="@+id/iv_xx"
+                    android:text="消息"
+                    android:textColor="#454545" />
+
+                <ImageView
+                    android:layout_width="@dimen/mh16.0dimens16.0dp"
+                    android:layout_height="@dimen/mh16.0dimens16.0dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+                    android:src="@mipmap/fragment_mine_rights_next" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mh48.0dimens48.0dp"
+                android:layout_marginTop="@dimen/mh1.0dimens1.0dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/iv_zhcz"
+                    android:layout_width="@dimen/mh20.0dimens20.0dp"
+                    android:layout_height="@dimen/mh20.0dimens20.0dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:background="#00b763"
+                    android:src="@mipmap/fragment_mine_account_recharge" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:layout_toRightOf="@+id/iv_zhcz"
+                    android:text="账户充值"
+                    android:textColor="#454545" />
+
+                <ImageView
+                    android:layout_width="@dimen/mh16.0dimens16.0dp"
+                    android:layout_height="@dimen/mh16.0dimens16.0dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+                    android:src="@mipmap/fragment_mine_rights_next" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mh48.0dimens48.0dp"
+                android:layout_marginTop="@dimen/mh1.0dimens1.0dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/iv_xfjl"
+                    android:layout_width="@dimen/mh20.0dimens20.0dp"
+                    android:layout_height="@dimen/mh20.0dimens20.0dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:background="#00b763"
+                    android:src="@mipmap/fragment_mine_recharge_log" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:layout_toRightOf="@+id/iv_xfjl"
+                    android:text="消费记录"
+                    android:textColor="#454545" />
+
+                <ImageView
+                    android:layout_width="@dimen/mh16.0dimens16.0dp"
+                    android:layout_height="@dimen/mh16.0dimens16.0dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+                    android:src="@mipmap/fragment_mine_rights_next" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mh48.0dimens48.0dp"
+                android:layout_marginTop="@dimen/mh10.0dimens10.0dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/iv_lxhc"
+                    android:layout_width="@dimen/mh20.0dimens20.0dp"
+                    android:layout_height="@dimen/mh20.0dimens20.0dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:background="#00b763"
+                    android:src="@mipmap/fragment_mine_cache" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:layout_toRightOf="@+id/iv_lxhc"
+                    android:text="离线缓存"
+                    android:textColor="#454545" />
+
+                <ImageView
+                    android:layout_width="@dimen/mh16.0dimens16.0dp"
+                    android:layout_height="@dimen/mh16.0dimens16.0dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+                    android:src="@mipmap/fragment_mine_rights_next" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mh48.0dimens48.0dp"
+                android:layout_marginTop="@dimen/mh1.0dimens1.0dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/iv_wdsc"
+                    android:layout_width="@dimen/mh20.0dimens20.0dp"
+                    android:layout_height="@dimen/mh20.0dimens20.0dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:background="#00b763"
+                    android:src="@mipmap/fragment_mine_collect" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:layout_toRightOf="@+id/iv_wdsc"
+                    android:text="我的收藏"
+                    android:textColor="#454545" />
+
+                <ImageView
+                    android:layout_width="@dimen/mh16.0dimens16.0dp"
+                    android:layout_height="@dimen/mh16.0dimens16.0dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+                    android:src="@mipmap/fragment_mine_rights_next" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mh48.0dimens48.0dp"
+                android:layout_marginTop="@dimen/mh1.0dimens1.0dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/iv_gkjl"
+                    android:layout_width="@dimen/mh20.0dimens20.0dp"
+                    android:layout_height="@dimen/mh20.0dimens20.0dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:background="#00b763"
+                    android:src="@mipmap/fragment_mine_watchlog" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:layout_toRightOf="@+id/iv_gkjl"
+                    android:text="观看记录"
+                    android:textColor="#454545" />
+
+                <ImageView
+                    android:layout_width="@dimen/mh16.0dimens16.0dp"
+                    android:layout_height="@dimen/mh16.0dimens16.0dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+                    android:src="@mipmap/fragment_mine_rights_next" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mh48.0dimens48.0dp"
+                android:layout_marginTop="@dimen/mh1.0dimens1.0dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/iv_wdls"
+                    android:layout_width="@dimen/mh20.0dimens20.0dp"
+                    android:layout_height="@dimen/mh20.0dimens20.0dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:background="#00b763"
+                    android:src="@mipmap/fragment_mine_langsong" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:layout_toRightOf="@+id/iv_wdls"
+                    android:text="我的朗诵"
+                    android:textColor="#454545" />
+
+                <ImageView
+                    android:layout_width="@dimen/mh16.0dimens16.0dp"
+                    android:layout_height="@dimen/mh16.0dimens16.0dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+                    android:src="@mipmap/fragment_mine_rights_next" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mh48.0dimens48.0dp"
+                android:layout_marginTop="@dimen/mh10.0dimens10.0dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/iv_sz"
+                    android:layout_width="@dimen/mh20.0dimens20.0dp"
+                    android:layout_height="@dimen/mh20.0dimens20.0dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:background="#00b763"
+                    android:src="@mipmap/fragment_mine_setting" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                    android:layout_toRightOf="@+id/iv_sz"
+                    android:text="设置"
+                    android:textColor="#454545" />
+
+                <ImageView
+                    android:layout_width="@dimen/mh16.0dimens16.0dp"
+                    android:layout_height="@dimen/mh16.0dimens16.0dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+                    android:src="@mipmap/fragment_mine_rights_next" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

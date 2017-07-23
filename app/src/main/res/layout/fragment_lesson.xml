@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh45.0dimens45.0dp"
+        android:background="#00b763"
+        android:gravity="center"
+        android:text="全部课程"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/rl_lesson_grade"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mh46.0dimens46.0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_lesson_grade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="年级"
+                android:textColor="#333"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/iv_lesson_grade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_lesson_grade"
+                android:src="@mipmap/lesson_version_down_sanjiao" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="@dimen/mh29.0dimens29.0dp"
+            android:layout_gravity="center_vertical"
+            android:background="#f2f2f2" />
+
+        <RelativeLayout
+            android:id="@+id/rl_lesson_type"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mh46.0dimens46.0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_lesson_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="年级"
+                android:textColor="#333"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/iv_lesson_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_lesson_type"
+                android:src="@mipmap/lesson_version_down_sanjiao" />
+        </RelativeLayout>
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_lesson_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0.5dp"
+        android:scrollbars="none"
+        android:background="@color/white"/>
+</LinearLayout>

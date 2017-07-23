@@ -32,7 +32,7 @@ public class SplashActivity extends Activity implements View.OnClickListener{
             case R.id.tv:
 
                 // 跳转到登录界面
-                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
 
                 break;
         }

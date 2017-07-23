@@ -10,6 +10,6 @@ public class UrlConfig {
     /**
      * base url
      */
-    public static final String BASE_URL="http://api.lovek12.com/v1911/";
+    public static final String BASE_URL="http://api.lovek12.com/v190/";
 
 }
