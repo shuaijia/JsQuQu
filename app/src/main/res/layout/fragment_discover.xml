@@ -25,9 +25,9 @@
 
 
             <android.support.v4.view.ViewPager
+                android:id="@+id/vp_discover_banner"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/mh150.0dimens150.0dp">
-            </android.support.v4.view.ViewPager>
+                android:layout_height="@dimen/mh210.0dimens210.0dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"

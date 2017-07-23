@@ -127,13 +127,13 @@ public class HomeFragment extends Fragment {
                     //滑动结束且item发生切换，position表示当前所在的item
                     @Override
                     public void onPageSelected(int position) {
-                        Log.e(TAG, "onPageSelected: "+position);
+//                        Log.e(TAG, "onPageSelected: "+position);
                     }
                     //state:1表示用户正在滑动ViewPage的item，2表示用户松手，item自由滑动
                     //0表示滑动结束，无论item有无切换
                     @Override
                     public void onPageScrollStateChanged(int state) {
-                        Log.e(TAG, "onPageScrollStateChanged: "+state );
+//                        Log.e(TAG, "onPageScrollStateChanged: "+state );
                     }
                 });
             }
