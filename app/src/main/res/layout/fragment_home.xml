@@ -40,6 +40,7 @@
             android:orientation="vertical">
 
             <android.support.v4.view.ViewPager
+                android:id="@+id/vp_home_lunbo"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/mh210.0dimens210.0dp"
                 android:background="@color/white" />
@@ -115,11 +116,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rl_home_kcjp"
                 android:descendantFocusability="blocksDescendants">
+
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/rv_home_kcjp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                     />
+                    android:layout_height="wrap_content" />
             </RelativeLayout>
 
 

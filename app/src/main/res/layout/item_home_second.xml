@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="170dp"
+    android:padding="@dimen/mh5.0dimens5.0dp">
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/iv_home_spzt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_home_item"
+        android:scaleType="fitXY"
+        android:src="@mipmap/frgament_lesson_video_bg" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_home_item" />
+
+    <TextView
+        android:id="@+id/tv_home_spzt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/mh3.0dimens3.0dp"
+        android:text="白雪公主"
+        android:textColor="#fff"
+        android:textSize="10sp" />
+
+</RelativeLayout>
