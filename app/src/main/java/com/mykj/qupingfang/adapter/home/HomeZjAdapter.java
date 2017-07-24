@@ -24,7 +24,7 @@ public class HomeZjAdapter extends RecyclerView.Adapter<HomeZjAdapter.HomeZjView
     private Context context;
     private List<HomeJp.DataBean.ResourceZxBean> list;
 
-    public HomeZjAdapter(Context context,List<HomeJp.DataBean.ResourceZxBean> list){
+    public HomeZjAdapter(Context context, List<HomeJp.DataBean.ResourceZxBean> list) {
         this.context = context;
         this.list = list;
     }
@@ -42,16 +42,16 @@ public class HomeZjAdapter extends RecyclerView.Adapter<HomeZjAdapter.HomeZjView
         holder.tv_home_grade.setText(bean.getGrade());
         holder.tv_home_time.setText(bean.getCtime());
         Glide.with(context)
-                .load("http://test.lovek12.com"+bean.getImg_url())
+                .load("http://test.lovek12.com" + bean.getImg_url())
                 .into(holder.iv_home_grade);
-        if (!bean.getPrice().equals("1.00")){
+        if (!bean.getPrice().equals("1.00")) {
             holder.iv_home_price.setVisibility(View.GONE);
         }
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return list == null ? 0 : list.size();
     }
 
     class HomeZjViewHodler extends RecyclerView.ViewHolder {

@@ -10,6 +10,6 @@
     <!-- 填充 -->
     <solid
         android:width="1dp"
-        android:color="#88000000" />
+        android:color="#50000000" />
 
 </shape>

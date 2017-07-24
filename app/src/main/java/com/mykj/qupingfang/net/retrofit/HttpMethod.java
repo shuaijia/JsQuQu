@@ -140,6 +140,17 @@ public class HttpMethod {
     }
 
     /**
+     * 获取首页精品数据
+     * @param subscriber
+     */
+    public void getHomeJp(Subscriber<HomeJp> subscriber) {
+        service.getHomeJp()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /**
      * 获取课程数据
      *
      * @param grade_id
@@ -150,22 +161,6 @@ public class HttpMethod {
      */
     public void getLesson(String grade_id, String course_type, String page,String size,Subscriber<Lesson> subscriber) {
         service.getLesson(grade_id,course_type,page,size)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(subscriber);
-    }
-
-    /**
-     * 获取首页精品数据
-     *
-     * @param grade_id
-     * @param course_type
-     * @param page
-     * @param size
-     * @param subscriber
-     */
-    public void getHomeJp(Subscriber<HomeJp> subscriber) {
-        service.getHomeJp()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);

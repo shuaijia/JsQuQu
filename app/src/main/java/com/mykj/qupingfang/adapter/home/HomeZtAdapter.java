@@ -20,7 +20,7 @@ import java.util.List;
  * 滴水穿石，非一日之功
  */
 
-public class HomeZtAdapter extends RecyclerView.Adapter<HomeZtAdapter.HomeZtViewHodler>{
+public class HomeZtAdapter extends RecyclerView.Adapter<HomeZtAdapter.HomeZtViewHodler> {
     private Context context;
     private List<HomeJp.DataBean.ResourceZtBean> list;
 
@@ -31,7 +31,7 @@ public class HomeZtAdapter extends RecyclerView.Adapter<HomeZtAdapter.HomeZtView
 
     @Override
     public HomeZtViewHodler onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_home_second,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_home_second, parent, false);
         return new HomeZtViewHodler(view);
     }
 
@@ -46,12 +46,13 @@ public class HomeZtAdapter extends RecyclerView.Adapter<HomeZtAdapter.HomeZtView
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return list == null ? 0 : list.size();
     }
 
-    class HomeZtViewHodler extends RecyclerView.ViewHolder{
+    class HomeZtViewHodler extends RecyclerView.ViewHolder {
         public ImageView iv_home_spzt;
         public TextView tv_home_spzt;
+
         public HomeZtViewHodler(View itemView) {
             super(itemView);
             iv_home_spzt = (ImageView) itemView.findViewById(R.id.iv_home_spzt);

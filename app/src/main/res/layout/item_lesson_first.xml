@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:background="@mipmap/frgament_lesson_video_bg" />
+            android:src="@mipmap/frgament_lesson_video_bg" />
 
         <ImageView
             android:layout_width="@dimen/mh30.0dimens30.0dp"

@@ -62,6 +62,13 @@ public class LessonFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        allFindViewById(view);
+
+        initData();
+    }
+
+    private void allFindViewById(View view){
         rl_lesson_grade = (RelativeLayout) view.findViewById(R.id.rl_lesson_grade);
         rl_lesson_type = (RelativeLayout) view.findViewById(R.id.rl_lesson_type);
         tv_lesson_grade = (TextView) view.findViewById(R.id.tv_lesson_grade);
@@ -69,8 +76,6 @@ public class LessonFragment extends Fragment {
         iv_lesson_grade = (ImageView) view.findViewById(R.id.iv_lesson_grade);
         iv_lesson_type = (ImageView) view.findViewById(R.id.iv_lesson_type);
         rv_lesson_content = (RecyclerView) view.findViewById(R.id.rv_lesson_content);
-
-        initData();
     }
 
     private void initData() {

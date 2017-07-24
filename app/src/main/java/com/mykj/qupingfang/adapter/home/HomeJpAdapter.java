@@ -42,16 +42,16 @@ public class HomeJpAdapter extends RecyclerView.Adapter<HomeJpAdapter.HomeJpView
         holder.tv_home_name.setText(bean.getTitle());
         holder.tv_home_time.setText(bean.getCtime());
         Glide.with(context)
-                .load("http://test.lovek12.com"+bean.getImg_url())
+                .load("http://test.lovek12.com" + bean.getImg_url())
                 .into(holder.iv_home_grade);
-        if (!bean.getPrice().equals("1.00")){
+        if (!bean.getPrice().equals("1.00")) {
             holder.iv_home_price.setVisibility(View.GONE);
         }
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return list == null ? 0 : list.size();
     }
 
     class HomeJpViewHodler extends RecyclerView.ViewHolder {
@@ -60,6 +60,7 @@ public class HomeJpAdapter extends RecyclerView.Adapter<HomeJpAdapter.HomeJpView
         public TextView tv_home_grade;
         public TextView tv_home_time;
         public ImageView iv_home_price;
+
         public HomeJpViewHodler(View itemView) {
             super(itemView);
             iv_home_grade = (ImageView) itemView.findViewById(R.id.iv_home_grade);

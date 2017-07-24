@@ -2,6 +2,7 @@ package com.mykj.qupingfang;
 
 import android.os.Bundle;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -35,22 +36,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rl_main_home = (RelativeLayout) findViewById(R.id.rl_main_home);
-        rl_main_home.setOnClickListener(this);
-        rl_main_lesson = (RelativeLayout) findViewById(R.id.rl_main_lesson);
-        rl_main_lesson.setOnClickListener(this);
-        rl_main_discover = (RelativeLayout) findViewById(R.id.rl_main_discover);
-        rl_main_discover.setOnClickListener(this);
-        rl_main_mine = (RelativeLayout) findViewById(R.id.rl_main_mine);
-        rl_main_mine.setOnClickListener(this);
+        allFindViewById();
 
-        homeFragment = new HomeFragment();
-        lessonFragment = new LessonFragment();
-        discoverFragment = new DiscoverFragment();
-        mineFragment = new MineFragment();
+        initFragment();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.rl_main_content, homeFragment)
-                .commitAllowingStateLoss();
+        replaceFragment(homeFragment);
 
     }
 
@@ -59,28 +49,47 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.rl_main_home:
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.rl_main_content, homeFragment)
-                        .commitAllowingStateLoss();
+                replaceFragment(homeFragment);
 
                 break;
             case R.id.rl_main_lesson:
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.rl_main_content, lessonFragment)
-                        .commitAllowingStateLoss();
+                replaceFragment(lessonFragment);
 
                 break;
             case R.id.rl_main_discover:
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.rl_main_content, discoverFragment)
-                        .commitAllowingStateLoss();
+                replaceFragment(discoverFragment);
 
                 break;
             case R.id.rl_main_mine:
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.rl_main_content, mineFragment)
-                        .commitAllowingStateLoss();
+                replaceFragment(mineFragment);
 
                 break;
         }
+    }
+
+    private void initFragment(){
+        homeFragment = new HomeFragment();
+        lessonFragment = new LessonFragment();
+        discoverFragment = new DiscoverFragment();
+        mineFragment = new MineFragment();
+    }
+
+    private void allFindViewById(){
+        rl_main_home = (RelativeLayout) findViewById(R.id.rl_main_home);
+        rl_main_home.setOnClickListener(this);
+        rl_main_lesson = (RelativeLayout) findViewById(R.id.rl_main_lesson);
+        rl_main_lesson.setOnClickListener(this);
+        rl_main_discover = (RelativeLayout) findViewById(R.id.rl_main_discover);
+        rl_main_discover.setOnClickListener(this);
+        rl_main_mine = (RelativeLayout) findViewById(R.id.rl_main_mine);
+        rl_main_mine.setOnClickListener(this);
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.rl_main_content, fragment)
+                .commitAllowingStateLoss();
     }
 }

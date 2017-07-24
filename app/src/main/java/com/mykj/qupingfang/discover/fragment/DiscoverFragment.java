@@ -40,14 +40,21 @@ public class DiscoverFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_discover,container,false);
+        return inflater.inflate(R.layout.fragment_discover, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        vp_discover_banner = (ViewPager) view.findViewById(R.id.vp_discover_banner);
+
+        allFindViewById(view);
+
         intiData();
+    }
+
+    private void allFindViewById(View view) {
+        vp_discover_banner = (ViewPager) view.findViewById(R.id.vp_discover_banner);
+
     }
 
     private void intiData() {
@@ -64,19 +71,23 @@ public class DiscoverFragment extends Fragment {
 
             @Override
             public void onNext(HomeJp homeJp) {
-                List<ImageView> imgs = new ArrayList<ImageView>();
-                homeBannerList = homeJp.getData().getBanner();
-                for (int i = 0; i < homeBannerList.size(); i++) {
-                    ImageView img = new ImageView(context);
-                    Glide.with(context)
-                            .load(homeBannerList.get(i).getImg_curl())
-                            .into(img);
-                    img.setScaleType(ImageView.ScaleType.FIT_XY);
-                    imgs.add(img);
-                }
-                discoverBannerAdapter = new HomeBannerAdapter(context,imgs);
-                vp_discover_banner.setAdapter(discoverBannerAdapter);
+                setDiscoverBanner(homeJp);
             }
         });
+    }
+
+    private void setDiscoverBanner(HomeJp homeJp) {
+        List<ImageView> imgs = new ArrayList<ImageView>();
+        homeBannerList = homeJp.getData().getBanner();
+        for (int i = 0; i < homeBannerList.size(); i++) {
+            ImageView img = new ImageView(context);
+            Glide.with(context)
+                    .load(homeBannerList.get(i).getImg_curl())
+                    .into(img);
+            img.setScaleType(ImageView.ScaleType.FIT_XY);
+            imgs.add(img);
+        }
+        discoverBannerAdapter = new HomeBannerAdapter(context, imgs);
+        vp_discover_banner.setAdapter(discoverBannerAdapter);
     }
 }
