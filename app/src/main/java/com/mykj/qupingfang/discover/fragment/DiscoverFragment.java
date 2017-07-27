@@ -2,6 +2,8 @@ package com.mykj.qupingfang.discover.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -12,6 +14,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.mykj.qupingfang.R;
+import com.mykj.qupingfang.adapter.home.DiscoverAdapter;
 import com.mykj.qupingfang.adapter.home.HomeBannerAdapter;
 import com.mykj.qupingfang.domain.home.HomeJp;
 import com.mykj.qupingfang.net.retrofit.HttpMethod;
@@ -28,8 +31,18 @@ import rx.Subscriber;
 public class DiscoverFragment extends Fragment {
     private Context context;
     private ViewPager vp_discover_banner;
-    private HomeBannerAdapter discoverBannerAdapter;
+    private DiscoverAdapter discoverBannerAdapter;
     private List<HomeJp.DataBean.BannerBean> homeBannerList;
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.what == 1){
+                vp_discover_banner.setCurrentItem(vp_discover_banner.getCurrentItem()+1);
+                handler.sendEmptyMessageDelayed(1,3000);
+            }
+        }
+    };
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -40,21 +53,14 @@ public class DiscoverFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_discover, container, false);
+        return inflater.inflate(R.layout.fragment_discover,container,false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        allFindViewById(view);
-
-        intiData();
-    }
-
-    private void allFindViewById(View view) {
         vp_discover_banner = (ViewPager) view.findViewById(R.id.vp_discover_banner);
-
+        intiData();
     }
 
     private void intiData() {
@@ -71,23 +77,13 @@ public class DiscoverFragment extends Fragment {
 
             @Override
             public void onNext(HomeJp homeJp) {
-                setDiscoverBanner(homeJp);
+                homeBannerList = homeJp.getData().getBanner();
+                discoverBannerAdapter = new DiscoverAdapter(context,homeBannerList);
+                vp_discover_banner.setAdapter(discoverBannerAdapter);
+                vp_discover_banner.setCurrentItem(2000);
+
+                handler.sendEmptyMessageDelayed(1,3000);
             }
         });
-    }
-
-    private void setDiscoverBanner(HomeJp homeJp) {
-        List<ImageView> imgs = new ArrayList<ImageView>();
-        homeBannerList = homeJp.getData().getBanner();
-        for (int i = 0; i < homeBannerList.size(); i++) {
-            ImageView img = new ImageView(context);
-            Glide.with(context)
-                    .load(homeBannerList.get(i).getImg_curl())
-                    .into(img);
-            img.setScaleType(ImageView.ScaleType.FIT_XY);
-            imgs.add(img);
-        }
-        discoverBannerAdapter = new HomeBannerAdapter(context, imgs);
-        vp_discover_banner.setAdapter(discoverBannerAdapter);
     }
 }

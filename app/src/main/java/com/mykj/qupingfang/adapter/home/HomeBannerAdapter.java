@@ -28,7 +28,6 @@ public class HomeBannerAdapter extends PagerAdapter {
     }
 
     @Override
-
     public void destroyItem(View container, int position, Object object) {
 
         ((ViewPager) container).removeView(list.get(position));
@@ -37,7 +36,6 @@ public class HomeBannerAdapter extends PagerAdapter {
 
 
     @Override
-
     public Object instantiateItem(View container, int position) {
 
         ImageView imageView = list.get(position);
