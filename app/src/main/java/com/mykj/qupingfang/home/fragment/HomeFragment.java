@@ -23,6 +23,8 @@ import com.mykj.qupingfang.adapter.home.HomeZtAdapter;
 import com.mykj.qupingfang.base.BaseFragment;
 import com.mykj.qupingfang.domain.home.HomeJp;
 import com.mykj.qupingfang.net.retrofit.HttpMethod;
+import com.youth.banner.Banner;
+import com.youth.banner.loader.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +42,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView rv_home_kcjp;
     private RecyclerView rv_home_zjgx;
     private RecyclerView rv_home_spzt;
-    private ViewPager vp_home_lunbo;
+    private Banner vp_home_lunbo;
     private List<HomeJp.DataBean.ResourceJpBean> homeJpList;
     private List<HomeJp.DataBean.ResourceZxBean> homeZxList;
     private List<HomeJp.DataBean.ResourceZtBean> homeZtList;
@@ -75,7 +77,7 @@ public class HomeFragment extends Fragment {
         rv_home_kcjp = (RecyclerView) view.findViewById(R.id.rv_home_kcjp);
         rv_home_zjgx = (RecyclerView) view.findViewById(R.id.rv_home_zjgx);
         rv_home_spzt = (RecyclerView) view.findViewById(R.id.rv_home_spzt);
-        vp_home_lunbo = (ViewPager) view.findViewById(R.id.vp_home_lunbo);
+        vp_home_lunbo = (Banner) view.findViewById(R.id.vp_home_lunbo);
     }
 
     private void intiData() {
@@ -132,18 +134,25 @@ public class HomeFragment extends Fragment {
     private void setHomeBanner(HomeJp homejp) {
         homeBannerList = homejp.getData().getBanner();
 
-        List<ImageView> imgs = new ArrayList<ImageView>();
+       // List<ImageView> imgs = new ArrayList<ImageView>();
+        List<String > imgs = new ArrayList<>();
         for (int i = 0; i < homeBannerList.size(); i++) {
             ImageView view = new ImageView(context);
-            Glide.with(context)
-                    .load(homeBannerList.get(i).getImg_curl())
-                    .into(view);
-            view.setScaleType(ImageView.ScaleType.FIT_XY);
-            imgs.add(view);
+
+//            Glide.with(context)
+//                    .load(homeBannerList.get(i).getImg_curl())
+//                    .into(view);
+//            view.setScaleType(ImageView.ScaleType.FIT_XY);
+            imgs.add(homeBannerList.get(i).getImg_curl());
         }
 
-        homeBannerAdapter = new HomeBannerAdapter(context, imgs);
-        vp_home_lunbo.setAdapter(homeBannerAdapter);
+//        homeBannerAdapter = new HomeBannerAdapter(context, imgs);
+//        vp_home_lunbo.setAdapter(homeBannerAdapter);
+        //运用github依赖库实现无限轮播
+        vp_home_lunbo.setImageLoader(new GlideImageLoader());
+        vp_home_lunbo.setImages(imgs);
+        vp_home_lunbo.start();
+
         vp_home_lunbo.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             //在滑动就走这个方法，用户停止滑动就不走了
             @Override
@@ -162,5 +171,13 @@ public class HomeFragment extends Fragment {
 //                        Log.e(TAG, "onPageScrollStateChanged: "+state );
             }
         });
+    }
+    class GlideImageLoader extends ImageLoader{
+        @Override
+        public void displayImage(Context context, Object path, ImageView imageView) {
+            Glide.with(context)
+                    .load(path)
+                    .into(imageView);
+        }
     }
 }

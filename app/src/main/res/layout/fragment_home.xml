@@ -39,7 +39,7 @@
             android:background="@color/white"
             android:orientation="vertical">
 
-            <android.support.v4.view.ViewPager
+            <com.youth.banner.Banner
                 android:id="@+id/vp_home_lunbo"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/mh210.0dimens210.0dp"
