@@ -99,7 +99,7 @@ public class HomeFragment extends Fragment {
 
                 setZtRecyclerView(homejp);
 
-                sethomeBanner(homejp);
+                setHomeBanner(homejp);
 
             }
         });
@@ -129,7 +129,7 @@ public class HomeFragment extends Fragment {
         rv_home_spzt.setAdapter(homeZtAdapter);
     }
 
-    private void sethomeBanner(HomeJp homejp) {
+    private void setHomeBanner(HomeJp homejp) {
         homeBannerList = homejp.getData().getBanner();
 
         List<ImageView> imgs = new ArrayList<ImageView>();
