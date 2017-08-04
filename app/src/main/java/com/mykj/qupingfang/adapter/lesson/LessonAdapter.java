@@ -28,9 +28,13 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHodler
 
     private Context context;
 
-    public LessonAdapter(Context context, List<Lesson.DataBean> list) {
+    public LessonAdapter(Context context) {
         this.context = context;
+    }
+
+    public void addData(List<Lesson.DataBean> list) {
         this.list = list;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -48,7 +52,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHodler
 
         // Glide加载图片必须步骤
         Glide.with(context)
-                .load("http://test.lovek12.com"+dataBean.getImg_url())
+                .load("http://test.lovek12.com" + dataBean.getImg_url())
                 .into(holder.iv_lesson_img);
     }
 
@@ -69,7 +73,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHodler
             tv_lesson_name = (TextView) itemView.findViewById(R.id.tv_lesson_name);
             tv_lesson_grade2 = (TextView) itemView.findViewById(R.id.tv_lesson_grade2);
             tv_lesson_time = (TextView) itemView.findViewById(R.id.tv_lesson_time);
-            iv_lesson_img= (ImageView) itemView.findViewById(R.id.iv_lesson_img);
+            iv_lesson_img = (ImageView) itemView.findViewById(R.id.iv_lesson_img);
         }
     }
 }

@@ -32,6 +32,7 @@ public class SplashActivity extends Activity{
         // 设置属性动画  渐变
         ObjectAnimator anim = ObjectAnimator.ofFloat(iv_splash, "alpha", 1.0f, 0f);
         anim.setDuration(3000);// 动画持续时间
+//        anim.setRepeatCount(3);
         anim.start();
 
         anim.addListener(new Animator.AnimatorListener() {
@@ -43,7 +44,8 @@ public class SplashActivity extends Activity{
             @Override
             public void onAnimationEnd(Animator animation) {
                 // 动画结束，跳转引导页
-                startActivity(new Intent(SplashActivity.this,GuideActivity.class));
+                startActivity(new Intent(SplashActivity.this,MainActivity.class));
+                finish();
             }
 
             @Override

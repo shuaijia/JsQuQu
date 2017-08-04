@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    android:orientation="vertical"
+    tools:context="com.mykj.qupingfang.home.activity.MoreActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh45.0dimens45.0dp"
+        android:background="#fff">
+
+        <Button
+            android:id="@+id/bt_more_fanhui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="#fff"
+            android:text="返回" />
+
+        <TextView
+            android:id="@+id/tx_more_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="最近更新" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh2.0dimens2.0dp"
+        android:background="#00b763" />
+
+    <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/tr_more_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:tr_head_height="100dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_home_more"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
+</LinearLayout>

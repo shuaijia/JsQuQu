@@ -3,6 +3,8 @@ package com.mykj.qupingfang.net.retrofit;
 import android.util.Log;
 
 import com.mykj.qupingfang.domain.home.HomeJp;
+import com.mykj.qupingfang.domain.home.HomeLesson;
+import com.mykj.qupingfang.domain.home.HomeSp;
 import com.mykj.qupingfang.domain.lesson.Lesson;
 import com.mykj.qupingfang.domain.login.Login;
 
@@ -161,6 +163,36 @@ public class HttpMethod {
      */
     public void getLesson(String grade_id, String course_type, String page,String size,Subscriber<Lesson> subscriber) {
         service.getLesson(grade_id,course_type,page,size)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /**
+     * 获取首页更多课程数据
+     *
+     * @param resource_type
+     * @param size
+     * @param page
+     * @param subscriber
+     */
+    public void getHomeLesson(String resource_type, String size, String page,Subscriber<HomeLesson> subscriber) {
+        service.getHomeLesson(resource_type,size,page)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /**
+     * 获取首页更多课程数据
+     *
+     * @param resource_type
+     * @param size
+     * @param page
+     * @param subscriber
+     */
+    public void getHomeSp(String resource_type, String size, String page,Subscriber<HomeSp> subscriber) {
+        service.getHomeSp(resource_type,size,page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);

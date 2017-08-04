@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="#ffffff">
+
+    <ImageView
+        android:id="@+id/iv_more_pic"
+        android:layout_width="85dp"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/mh16.0dimens16.0dp"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/tv_more_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/mh16.0dimens16.0dp"
+        android:layout_toRightOf="@+id/iv_more_pic"
+        android:text="《甜美蛋糕的遇见》"
+        android:textColor="#454545"
+        android:textSize="14sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh1.0dimens1.0dp"
+        android:background="#f2f2f2" />
+</RelativeLayout>

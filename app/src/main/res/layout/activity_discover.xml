@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.mykj.qupingfang.discover.activity.DiscoverActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh45.0dimens45.0dp"
+        android:background="#00b673">
+
+        <ImageView
+            android:id="@+id/iv_discover_back"
+            android:layout_width="@dimen/mh30.0dimens30.0dp"
+            android:layout_height="@dimen/mh30.0dimens30.0dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/tv_discover_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="发现"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+    </RelativeLayout>
+    <ProgressBar
+        android:id="@+id/pb_discover_progress"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh4.0dimens4.0dp"
+        android:max="100"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:progressDrawable="@drawable/progressbar"
+        android:visibility="gone"/>
+    <WebView
+        android:id="@+id/wv_discover_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

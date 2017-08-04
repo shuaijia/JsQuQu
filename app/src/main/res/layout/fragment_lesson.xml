@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f2f2f2"
@@ -40,6 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/mh11.5dimens11.5dp"
                 android:layout_toRightOf="@id/tv_lesson_grade"
                 android:src="@mipmap/lesson_version_down_sanjiao" />
         </RelativeLayout>
@@ -71,15 +73,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/mh11.5dimens11.5dp"
                 android:layout_toRightOf="@id/tv_lesson_type"
                 android:src="@mipmap/lesson_version_down_sanjiao" />
         </RelativeLayout>
     </LinearLayout>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_lesson_content"
+
+    <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="0.5dp"
-        android:scrollbars="none"
-        android:background="@color/white"/>
+        app:tr_head_height="100dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_lesson_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0.5dp"
+            android:background="@color/white"
+            android:overScrollMode="never"
+            android:scrollbars="none" />
+    </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
 </LinearLayout>

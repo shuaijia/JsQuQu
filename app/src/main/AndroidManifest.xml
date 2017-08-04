@@ -40,6 +40,8 @@
             android:name=".login.activity.LoginActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+        <activity android:name=".home.activity.MoreActivity" />
+        <activity android:name=".discover.activity.DiscoverActivity"></activity>
     </application>
 
 </manifest>

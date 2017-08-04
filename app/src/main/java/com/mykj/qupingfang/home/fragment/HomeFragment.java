@@ -1,6 +1,7 @@
 package com.mykj.qupingfang.home.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.mykj.qupingfang.R;
@@ -22,6 +25,7 @@ import com.mykj.qupingfang.adapter.home.HomeZjAdapter;
 import com.mykj.qupingfang.adapter.home.HomeZtAdapter;
 import com.mykj.qupingfang.base.BaseFragment;
 import com.mykj.qupingfang.domain.home.HomeJp;
+import com.mykj.qupingfang.home.activity.MoreActivity;
 import com.mykj.qupingfang.net.retrofit.HttpMethod;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
@@ -35,7 +39,7 @@ import rx.Subscriber;
  * Created by Administrator on 2017/7/23.
  */
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener{
 
     private static final String TAG = "HomeFragment";
     private Context context;
@@ -43,6 +47,9 @@ public class HomeFragment extends Fragment {
     private RecyclerView rv_home_zjgx;
     private RecyclerView rv_home_spzt;
     private Banner vp_home_lunbo;
+    private TextView tv_home_zjgx;
+    private TextView tv_home_kcjp;
+    private TextView tv_home_spzt;
     private List<HomeJp.DataBean.ResourceJpBean> homeJpList;
     private List<HomeJp.DataBean.ResourceZxBean> homeZxList;
     private List<HomeJp.DataBean.ResourceZtBean> homeZtList;
@@ -78,6 +85,12 @@ public class HomeFragment extends Fragment {
         rv_home_zjgx = (RecyclerView) view.findViewById(R.id.rv_home_zjgx);
         rv_home_spzt = (RecyclerView) view.findViewById(R.id.rv_home_spzt);
         vp_home_lunbo = (Banner) view.findViewById(R.id.vp_home_lunbo);
+        tv_home_zjgx = (TextView) view.findViewById(R.id.tv_home_zjgx);
+        tv_home_zjgx.setOnClickListener(this);
+        tv_home_kcjp = (TextView) view.findViewById(R.id.tv_home_kcjp);
+        tv_home_kcjp.setOnClickListener(this);
+        tv_home_spzt = (TextView) view.findViewById(R.id.tv_home_spzt);
+        tv_home_spzt.setOnClickListener(this);
     }
 
     private void intiData() {
@@ -172,6 +185,21 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tv_home_zjgx:
+                MoreActivity.actionMoreActivity(context, "最近更新","zx_more");
+                break;
+            case R.id.tv_home_kcjp:
+                MoreActivity.actionMoreActivity(context, "课程精品","jp_more");
+                break;
+            case R.id.tv_home_spzt:
+                MoreActivity.actionMoreActivity(context, "视频专题","zt_more");
+        }
+    }
+
     class GlideImageLoader extends ImageLoader{
         @Override
         public void displayImage(Context context, Object path, ImageView imageView) {
