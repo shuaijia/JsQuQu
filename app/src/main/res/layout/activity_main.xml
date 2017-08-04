@@ -10,8 +10,10 @@
         android:id="@+id/ll_main_tab"
         android:layout_width="match_parent"
         android:layout_height="@dimen/mh60.0dimens60.0dp"
+        android:background="#ffffff"
         android:layout_alignParentBottom="true"
-        android:background="#ffffff">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <RelativeLayout
             android:id="@+id/rl_main_home"
@@ -24,9 +26,10 @@
                 android:clickable="false"
                 android:layout_width="@dimen/mh40.0dimens40.0dp"
                 android:layout_height="@dimen/mh40.0dimens40.0dp"
-                android:layout_centerHorizontal="true"
-                android:background="#00b763"
-                android:src="@mipmap/aa_home" />
+                android:background="#a0a0a0"
+                android:src="@mipmap/aa_home"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
 
             <TextView
                 android:id="@+id/tv_main_home"
@@ -35,6 +38,7 @@
                 android:layout_below="@id/iv_main_home"
                 android:clickable="false"
                 android:layout_centerHorizontal="true"
+                android:textColor="#a0a0a0"
                 android:text="首页" />
         </RelativeLayout>
 
@@ -50,7 +54,7 @@
                 android:layout_width="@dimen/mh40.0dimens40.0dp"
                 android:layout_height="@dimen/mh40.0dimens40.0dp"
                 android:layout_centerHorizontal="true"
-                android:background="#00b763"
+                android:background="#a0a0a0"
                 android:src="@mipmap/aa_lesson" />
 
             <TextView
@@ -60,6 +64,7 @@
                 android:layout_below="@id/iv_main_lesson"
                 android:clickable="false"
                 android:layout_centerHorizontal="true"
+                android:textColor="#a0a0a0"
                 android:text="课程" />
         </RelativeLayout>
 
@@ -75,7 +80,7 @@
                 android:layout_width="@dimen/mh40.0dimens40.0dp"
                 android:layout_height="@dimen/mh40.0dimens40.0dp"
                 android:layout_centerHorizontal="true"
-                android:background="#00b763"
+                android:background="#a0a0a0"
                 android:src="@mipmap/aa_discover" />
 
             <TextView
@@ -85,6 +90,7 @@
                 android:layout_below="@id/iv_main_discover"
                 android:clickable="false"
                 android:layout_centerHorizontal="true"
+                android:textColor="#a0a0a0"
                 android:text="发现" />
         </RelativeLayout>
 
@@ -100,7 +106,7 @@
                 android:layout_width="@dimen/mh40.0dimens40.0dp"
                 android:layout_height="@dimen/mh40.0dimens40.0dp"
                 android:layout_centerHorizontal="true"
-                android:background="#00b763"
+                android:background="#a0a0a0"
                 android:src="@mipmap/aa_mine" />
 
             <TextView
@@ -110,6 +116,7 @@
                 android:layout_below="@id/iv_main_mine"
                 android:clickable="false"
                 android:layout_centerHorizontal="true"
+                android:textColor="#a0a0a0"
                 android:text="我的" />
         </RelativeLayout>
     </LinearLayout>

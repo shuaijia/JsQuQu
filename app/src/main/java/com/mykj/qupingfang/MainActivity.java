@@ -1,5 +1,6 @@
 package com.mykj.qupingfang;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.support.v4.app.Fragment;
@@ -8,14 +9,20 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.mykj.qupingfang.discover.fragment.DiscoverFragment;
 import com.mykj.qupingfang.home.fragment.HomeFragment;
 import com.mykj.qupingfang.lesson.fragment.LessonFragment;
 import com.mykj.qupingfang.mine.fragment.MineFragment;
 
+import org.zackratos.ultimatebar.UltimateBar;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Description: 主界面
@@ -29,26 +36,58 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private RelativeLayout rl_main_discover;
     private RelativeLayout rl_main_mine;
 
+    private ImageView iv_main_home;
+    private TextView tv_main_home;
+    private ImageView iv_main_lesson;
+    private TextView tv_main_lesson;
+    private ImageView iv_main_discover;
+    private TextView tv_main_discover;
+    private ImageView iv_main_mine;
+    private TextView tv_main_mine;
+
     private Fragment currentFragment;
+
+    private List<ImageView> imageViewList = new ArrayList<>();
+    private List<TextView> textViewList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         allFindViewById();
 
         replaceFragment("home");
+        setColor(iv_main_home, tv_main_home);
+    }
 
-        Student stu=null;
-        HashMap<String,Student> map=new HashMap<String,Student>();
-        for(int i=0;i<10;i++){
-            stu=new Student("AA",i);
-            map.put("aa",stu);
-        }
+    private void allFindViewById() {
+        rl_main_home = (RelativeLayout) findViewById(R.id.rl_main_home);
+        rl_main_home.setOnClickListener(this);
+        rl_main_lesson = (RelativeLayout) findViewById(R.id.rl_main_lesson);
+        rl_main_lesson.setOnClickListener(this);
+        rl_main_discover = (RelativeLayout) findViewById(R.id.rl_main_discover);
+        rl_main_discover.setOnClickListener(this);
+        rl_main_mine = (RelativeLayout) findViewById(R.id.rl_main_mine);
+        rl_main_mine.setOnClickListener(this);
 
-        Log.e("TAG", "onCreate: "+map.toString() );
-
+        iv_main_home = (ImageView) findViewById(R.id.iv_main_home);
+        imageViewList.add(iv_main_home);
+        tv_main_home = (TextView) findViewById(R.id.tv_main_home);
+        textViewList.add(tv_main_home);
+        iv_main_lesson = (ImageView) findViewById(R.id.iv_main_lesson);
+        imageViewList.add(iv_main_lesson);
+        tv_main_lesson = (TextView) findViewById(R.id.tv_main_lesson);
+        textViewList.add(tv_main_lesson);
+        iv_main_discover = (ImageView) findViewById(R.id.iv_main_discover);
+        imageViewList.add(iv_main_discover);
+        tv_main_discover = (TextView) findViewById(R.id.tv_main_discover);
+        textViewList.add(tv_main_discover);
+        iv_main_mine = (ImageView) findViewById(R.id.iv_main_mine);
+        imageViewList.add(iv_main_mine);
+        tv_main_mine = (TextView) findViewById(R.id.tv_main_mine);
+        textViewList.add(tv_main_mine);
     }
 
     @Override
@@ -61,32 +100,25 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.rl_main_home:
                 replaceFragment("home");
+                setColor(iv_main_home, tv_main_home);
                 break;
             case R.id.rl_main_lesson:
                 replaceFragment("lesson");
+                setColor(iv_main_lesson, tv_main_lesson);
                 break;
             case R.id.rl_main_discover:
                 replaceFragment("discover");
+                setColor(iv_main_discover, tv_main_discover);
                 break;
             case R.id.rl_main_mine:
                 replaceFragment("mine");
+                setColor(iv_main_mine, tv_main_mine);
                 break;
         }
     }
 
-    private void allFindViewById() {
-        rl_main_home = (RelativeLayout) findViewById(R.id.rl_main_home);
-        rl_main_home.setOnClickListener(this);
-        rl_main_lesson = (RelativeLayout) findViewById(R.id.rl_main_lesson);
-        rl_main_lesson.setOnClickListener(this);
-        rl_main_discover = (RelativeLayout) findViewById(R.id.rl_main_discover);
-        rl_main_discover.setOnClickListener(this);
-        rl_main_mine = (RelativeLayout) findViewById(R.id.rl_main_mine);
-        rl_main_mine.setOnClickListener(this);
-    }
-
     private void replaceFragment(String flag) {
-        if (currentFragment != null){
+        if (currentFragment != null) {
             getSupportFragmentManager().beginTransaction().hide(currentFragment).commit();
         }
         currentFragment = getSupportFragmentManager().findFragmentByTag(flag);
@@ -112,12 +144,20 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         }
     }
 
-    class Student {
-        private String name;
-        private int age;
-        public Student(String name,int age){
-            this.name=name;
-            this.age=age;
+    public void setColor(ImageView imageView, TextView textView) {
+        for (ImageView iv : imageViewList) {
+            if (iv == imageView) {
+                iv.setBackgroundColor(Color.parseColor("#00b763"));
+            } else {
+                iv.setBackgroundColor(Color.parseColor("#a0a0a0"));
+            }
+        }
+        for (TextView tv : textViewList) {
+            if (tv == textView) {
+                tv.setTextColor(Color.parseColor("#00b763"));
+            } else {
+                tv.setTextColor(Color.parseColor("#a0a0a0"));
+            }
         }
     }
 }
