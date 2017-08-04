@@ -45,10 +45,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private ImageView iv_main_mine;
     private TextView tv_main_mine;
 
-    private Fragment currentFragment;
+    private Fragment currentFragment;//用于存放当前展示在最前面的Fragment
 
-    private List<ImageView> imageViewList = new ArrayList<>();
-    private List<TextView> textViewList = new ArrayList<>();
+    private List<ImageView> imageViewList = new ArrayList<>();//用于存放导航栏中的ImageView
+    private List<TextView> textViewList = new ArrayList<>();//用于存放导航栏中的TextView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         replaceFragment("home");
         setColor(iv_main_home, tv_main_home);
     }
-
+/**
+ * 将所有的View都实例化findViewById
+ * */
     private void allFindViewById() {
         rl_main_home = (RelativeLayout) findViewById(R.id.rl_main_home);
         rl_main_home.setOnClickListener(this);
@@ -116,13 +118,16 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 break;
         }
     }
-
+    /**
+     * 根据flag决定展示在最前面的Fragment
+     * 注意:事务一定要commit()
+     * */
     private void replaceFragment(String flag) {
         if (currentFragment != null) {
-            getSupportFragmentManager().beginTransaction().hide(currentFragment).commit();
+            getSupportFragmentManager().beginTransaction().hide(currentFragment).commit();//隐藏当前Fragment
         }
-        currentFragment = getSupportFragmentManager().findFragmentByTag(flag);
-        if (currentFragment == null) {
+        currentFragment = getSupportFragmentManager().findFragmentByTag(flag);//通过flag找到要展示在最前面的Fragment
+        if (currentFragment == null) {//如果找不到想要展示的Fragment，则根据flag去创建具体的Fragment
             switch (flag) {
                 case "home":
                     currentFragment = new HomeFragment();
@@ -138,25 +143,29 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                     break;
             }
             getSupportFragmentManager().beginTransaction().add(R.id.rl_main_content, currentFragment, flag)
-                    .commit();
+                    .commit();//将创建好的Fragment加入到管理类中并提交，注意:一定要commit()
         } else {
-            getSupportFragmentManager().beginTransaction().show(currentFragment).commit();
+            getSupportFragmentManager().beginTransaction().show(currentFragment).commit();//展示找到的Fragment
         }
     }
-
+    /**
+     * 用于改变下方导航栏图标底色
+     * imageView表示被点击的图标
+     * textView表示被点击的字
+     * */
     public void setColor(ImageView imageView, TextView textView) {
         for (ImageView iv : imageViewList) {
             if (iv == imageView) {
-                iv.setBackgroundColor(Color.parseColor("#00b763"));
+                iv.setBackgroundColor(Color.parseColor("#00b763"));//被点击的设置为绿色
             } else {
-                iv.setBackgroundColor(Color.parseColor("#a0a0a0"));
+                iv.setBackgroundColor(Color.parseColor("#a0a0a0"));//其他的设置为灰色
             }
         }
         for (TextView tv : textViewList) {
             if (tv == textView) {
-                tv.setTextColor(Color.parseColor("#00b763"));
+                tv.setTextColor(Color.parseColor("#00b763"));//被点击的设置为绿色
             } else {
-                tv.setTextColor(Color.parseColor("#a0a0a0"));
+                tv.setTextColor(Color.parseColor("#a0a0a0"));//其他的设置为灰色
             }
         }
     }
