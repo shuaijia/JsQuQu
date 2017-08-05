@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.mykj.qupingfang.R;
 import com.mykj.qupingfang.mine.activity.MineAccountActivity;
+import com.mykj.qupingfang.mine.activity.MineCollectionActivity;
 import com.mykj.qupingfang.mine.activity.MineConsumeActivity;
 import com.mykj.qupingfang.mine.activity.MineInformationActivity;
 import com.mykj.qupingfang.mine.activity.MineMessageActivity;
@@ -101,6 +102,9 @@ public class MineFragment extends Fragment implements View.OnClickListener {
                 Intent intent4 = new Intent(context, MineConsumeActivity.class);
                 intent4.putExtra("title","消费记录");
                 startActivity(intent4);
+                break;
+            case R.id.rl_mine_collect:
+                startActivity(new Intent(context, MineCollectionActivity.class));
                 break;
         }
     }

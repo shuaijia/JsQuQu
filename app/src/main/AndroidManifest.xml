@@ -47,7 +47,8 @@
         <activity android:name=".mine.activity.MineMessageActivity" />
         <activity android:name=".mine.activity.MineAccountActivity" />
         <activity android:name=".mine.activity.MineConsumeActivity" />
-        <activity android:name=".mine.activity.MineDownloadActivity"></activity>
+        <activity android:name=".mine.activity.MineDownloadActivity"/>
+        <activity android:name=".mine.activity.MineCollectionActivity"/>
     </application>
 
 </manifest>
