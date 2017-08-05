@@ -26,10 +26,12 @@
 
     <TextView
         android:id="@+id/tv_lesson_name"
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rl_lesson_img"
         android:layout_marginTop="@dimen/mh10.0dimens10.0dp"
+        android:singleLine="true"
+        android:ellipsize="end"
         android:text="课程名字" />
 
     <TextView

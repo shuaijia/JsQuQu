@@ -13,7 +13,7 @@
         android:textColor="#fff"
         android:textSize="16sp" />
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -25,6 +25,7 @@
 
 
             <RelativeLayout
+                android:id="@+id/rl_mine_username"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/mh100.0dimens100.0dp"
                 android:layout_marginTop="@dimen/mh10.0dimens10.0dp"
@@ -39,6 +40,7 @@
                     android:src="@mipmap/fragment_mine_head" />
 
                 <TextView
+                    android:id="@+id/tv_mine_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -57,6 +59,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl_mine_version"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/mh48.0dimens48.0dp"
                 android:layout_marginTop="@dimen/mh10.0dimens10.0dp"
@@ -90,6 +93,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl_mine_message"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/mh48.0dimens48.0dp"
                 android:layout_marginTop="@dimen/mh1.0dimens1.0dp"
@@ -123,6 +127,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl_mine_account"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/mh48.0dimens48.0dp"
                 android:layout_marginTop="@dimen/mh1.0dimens1.0dp"
@@ -156,6 +161,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl_mine_consume"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/mh48.0dimens48.0dp"
                 android:layout_marginTop="@dimen/mh1.0dimens1.0dp"
@@ -190,6 +196,7 @@
 
 
             <RelativeLayout
+                android:id="@+id/rl_mine_cache"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/mh48.0dimens48.0dp"
                 android:layout_marginTop="@dimen/mh10.0dimens10.0dp"
@@ -223,6 +230,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl_mine_collect"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/mh48.0dimens48.0dp"
                 android:layout_marginTop="@dimen/mh1.0dimens1.0dp"
@@ -256,6 +264,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl_mine_watch"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/mh48.0dimens48.0dp"
                 android:layout_marginTop="@dimen/mh1.0dimens1.0dp"
@@ -289,6 +298,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl_mine_reading"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/mh48.0dimens48.0dp"
                 android:layout_marginTop="@dimen/mh1.0dimens1.0dp"
@@ -322,6 +332,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl_mine_setting"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/mh48.0dimens48.0dp"
                 android:layout_marginTop="@dimen/mh10.0dimens10.0dp"

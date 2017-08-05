@@ -10,16 +10,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/mh45.0dimens45.0dp"
-        android:background="#fff">
+        android:background="#00b763">
 
-        <Button
+        <ImageView
             android:id="@+id/bt_more_fanhui"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
-            android:background="#fff"
-            android:text="返回" />
-
+            android:src="@mipmap/back"/>
         <TextView
             android:id="@+id/tx_more_title"
             android:layout_width="wrap_content"
@@ -27,6 +25,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:gravity="center"
+            android:textColor="#ffffff"
             android:text="最近更新" />
 
     </RelativeLayout>

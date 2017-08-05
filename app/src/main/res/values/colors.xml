@@ -13,7 +13,7 @@
 
     <!-- 绿色： 标题背景颜色 -->
     <color name="green_title_backgroundcolor">#00b763</color>
-
+    <color name="green_title_discoverbc">#00B673</color>
     <!-- 灰色较深： 标题等较重要的文字颜色 -->
     <color name="gray_text_color">#333333</color>
     <!-- 灰色中等：  次于标题性的文字的颜色,之前的454545更改为这个 -->

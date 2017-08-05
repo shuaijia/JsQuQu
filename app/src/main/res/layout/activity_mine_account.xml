@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <com.mykj.qupingfang.view.TitleLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mh10.0dimens10.0dp"
+            android:background="#f2f2f2" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mh38.0dimens38.0dp"
+            android:background="#fff">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                android:text="当前余额:"
+                android:textColor="#888888"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                android:singleLine="true"
+                android:text="0.0元"
+                android:textColor="#ff0000" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mh1.0dimens1.0dp"
+            android:background="#f2f2f2" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mh38.0dimens38.0dp"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/mh12.0dimens12.0dp"
+            android:text="充值金额:"
+            android:textColor="#888888"
+            android:textSize="16sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mh5.0dimens5.0dp"
+            android:background="#fff"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/tv_mine_account_30"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_mine_account"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="30元"
+                android:textColor="@drawable/selector_mine_account_textcolor" />
+
+            <RadioButton
+                android:id="@+id/tv_mine_account_100"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_mine_account"
+                android:button="@null"
+                android:gravity="center"
+                android:text="100元"
+                android:textColor="@drawable/selector_mine_account_textcolor" />
+
+            <RadioButton
+                android:id="@+id/tv_mine_account_300"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_mine_account"
+                android:button="@null"
+                android:gravity="center"
+                android:text="300元"
+                android:textColor="@drawable/selector_mine_account_textcolor" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/et_mine_account_money"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mh50.0dimens50.0dp"
+            android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+            android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+            android:layout_marginTop="@dimen/mh12.0dimens12.0dp"
+            android:background="@drawable/selector_mine_account"
+            android:hint="请输入金额" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+            android:layout_marginTop="20dp"
+            android:text="支付方式"
+            android:textColor="#888888"
+            android:textSize="16sp" />
+
+        <!--微信支付条目-->
+        <RelativeLayout
+            android:id="@+id/rl_account_wx"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mh50.0dimens50.0dp"
+            android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+            android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+            android:layout_marginTop="@dimen/mh5.0dimens5.0dp">
+
+            <ImageView
+                android:id="@+id/iv_mine_account_weixin"
+                android:layout_width="@dimen/mh40.0dimens40.0dp"
+                android:layout_height="@dimen/mh40.0dimens40.0dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/wechat_friends_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                android:layout_toRightOf="@id/iv_mine_account_weixin"
+                android:text="微信支付"
+                android:textColor="#888888" />
+
+            <CheckBox
+                android:layout_width="@dimen/mh25.0dimens25.0dp"
+                android:layout_height="@dimen/mh25.0dimens25.0dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:button="@drawable/selector_checkpay_style"
+                android:checked="true"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+            android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+            android:background="#f2f2f2" />
+        <!--支付宝支付条目-->
+        <RelativeLayout
+            android:id="@+id/rl_account_ali"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mh50.0dimens50.0dp"
+            android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+            android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+            android:layout_marginTop="@dimen/mh5.0dimens5.0dp">
+
+            <ImageView
+                android:id="@+id/iv_mine_account_ali"
+                android:layout_width="@dimen/mh40.0dimens40.0dp"
+                android:layout_height="@dimen/mh40.0dimens40.0dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_zfbpay_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+                android:layout_toRightOf="@id/iv_mine_account_ali"
+                android:text="支付宝支付"
+                android:textColor="#888888" />
+
+            <CheckBox
+                android:layout_width="@dimen/mh25.0dimens25.0dp"
+                android:layout_height="@dimen/mh25.0dimens25.0dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:button="@drawable/selector_checkpay_style"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh50.0dimens50.0dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="#888888"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/mh12.0dimens12.0dp"
+            android:text="支付金额：**元"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ff0000"
+            android:gravity="center"
+            android:text="立即支付"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+</RelativeLayout>

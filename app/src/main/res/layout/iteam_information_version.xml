@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_choose_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="人教版" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/mh40.0dimens40.0dp"
+        android:textSize="12sp"
+        android:textColor="#a0a0a0"
+        android:text="默认"/>
+
+    <ImageView
+        android:layout_width="@dimen/mh16.0dimens16.0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/mh12.0dimens12.0dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh1.0dimens1.0dp"
+        android:layout_alignParentBottom="true"
+        android:background="#f2f2f2"/>
+</RelativeLayout>

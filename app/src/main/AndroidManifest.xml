@@ -41,7 +41,12 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity android:name=".home.activity.MoreActivity" />
-        <activity android:name=".discover.activity.DiscoverActivity"></activity>
+        <activity android:name=".discover.activity.DiscoverActivity" />
+        <activity android:name=".mine.activity.MineInformationActivity" />
+        <activity android:name=".mine.activity.MineVersionActivity" />
+        <activity android:name=".mine.activity.MineMessageActivity" />
+        <activity android:name=".mine.activity.MineAccountActivity" />
+        <activity android:name=".mine.activity.MineConsumeActivity"></activity>
     </application>
 
 </manifest>

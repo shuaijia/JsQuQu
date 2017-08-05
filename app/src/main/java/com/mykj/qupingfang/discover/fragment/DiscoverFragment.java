@@ -79,7 +79,11 @@ public class DiscoverFragment extends Fragment {
         wv_discover_content.loadUrl("http://api.lovek12.com/index.php?r=discovery/index&v=198###");
     }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+//        wv_discover_content.reload();
+    }
 
     public class MyWebViewClient extends WebViewClient {
 

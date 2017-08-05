@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -23,6 +24,8 @@ import android.widget.TextView;
 
 import com.mykj.qupingfang.R;
 
+import org.zackratos.ultimatebar.UltimateBar;
+
 import static android.webkit.WebSettings.LOAD_CACHE_ELSE_NETWORK;
 
 public class DiscoverActivity extends Activity implements View.OnClickListener{
@@ -35,6 +38,10 @@ public class DiscoverActivity extends Activity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discover);
+
+        UltimateBar ultimateBar = new UltimateBar(this);
+        ultimateBar.setColorBar(ContextCompat.getColor(this, R.color.green_title_discoverbc));
+
         iv_discover_back= (ImageView) findViewById(R.id.iv_discover_back);
         iv_discover_back.setOnClickListener(this);
         tv_discover_title = (TextView) findViewById(R.id.tv_discover_title);

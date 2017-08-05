@@ -3,6 +3,7 @@ package com.mykj.qupingfang.home.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
@@ -25,6 +27,8 @@ import com.mykj.qupingfang.domain.home.HomeLesson;
 import com.mykj.qupingfang.domain.home.HomeSp;
 import com.mykj.qupingfang.net.retrofit.HttpMethod;
 
+import org.zackratos.ultimatebar.UltimateBar;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +38,7 @@ public class MoreActivity extends Activity implements View.OnClickListener {
 
     private static final String TAG = "MoreActivity";
 
-    private Button bt_more_fanhui;//返回按钮
+    private ImageView bt_more_fanhui;//返回按钮
     private TextView tx_more_title;//头部title
     private RecyclerView rv_home_more;
     private TwinklingRefreshLayout tr_more_refresh;//下拉加载布局
@@ -55,7 +59,10 @@ public class MoreActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more);
 
-        bt_more_fanhui = (Button) findViewById(R.id.bt_more_fanhui);
+        UltimateBar ultimateBar = new UltimateBar(this);
+        ultimateBar.setColorBar(ContextCompat.getColor(this, R.color.theme_color_primary));
+
+        bt_more_fanhui = (ImageView) findViewById(R.id.bt_more_fanhui);
         bt_more_fanhui.setOnClickListener(this);
         tx_more_title = (TextView) findViewById(R.id.tx_more_title);
         rv_home_more = (RecyclerView) findViewById(R.id.rv_home_more);
@@ -173,6 +180,7 @@ public class MoreActivity extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.bt_more_fanhui:
                 finish();
+                this.overridePendingTransition(0,R.anim.activity_close);
         }
     }
 
@@ -182,5 +190,6 @@ public class MoreActivity extends Activity implements View.OnClickListener {
         intent.putExtra("type", type);
         intent.setClass(context, MoreActivity.class);
         context.startActivity(intent);
+        ((Activity)context).overridePendingTransition(R.anim.activity_open,0);
     }
 }

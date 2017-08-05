@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import com.mykj.qupingfang.login.activity.LoginActivity;
 
+import org.zackratos.ultimatebar.UltimateBar;
+
 /**
  * Description: 启动页
  * Created by jia on 2017/7/4.
@@ -27,6 +29,10 @@ public class SplashActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        UltimateBar ultimateBar = new UltimateBar(this);
+        ultimateBar.setImmersionBar();
+
         iv_splash= (ImageView) findViewById(R.id.iv_splash);
 
         // 设置属性动画  渐变
