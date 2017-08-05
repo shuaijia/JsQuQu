@@ -14,6 +14,7 @@ import com.mykj.qupingfang.R;
 import com.mykj.qupingfang.mine.activity.MineAccountActivity;
 import com.mykj.qupingfang.mine.activity.MineCollectionActivity;
 import com.mykj.qupingfang.mine.activity.MineConsumeActivity;
+import com.mykj.qupingfang.mine.activity.MineDownloadActivity;
 import com.mykj.qupingfang.mine.activity.MineInformationActivity;
 import com.mykj.qupingfang.mine.activity.MineMessageActivity;
 import com.mykj.qupingfang.mine.activity.MineVersionActivity;
@@ -105,6 +106,9 @@ public class MineFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.rl_mine_collect:
                 startActivity(new Intent(context, MineCollectionActivity.class));
+                break;
+            case R.id.rl_mine_cache:
+                startActivity(new Intent(context, MineDownloadActivity.class));
                 break;
         }
     }

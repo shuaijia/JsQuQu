@@ -56,7 +56,7 @@ public class MineCollectionActivity extends Activity implements View.OnClickList
 
         tv_collection_clear.setVisibility(View.GONE);
         tv_collection_no_data.setVisibility(View.VISIBLE);
-        tv_collection_no_data.setText("提示");
+        tv_collection_no_data.setText("加载中");
     }
 
     @Override
