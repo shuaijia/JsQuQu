@@ -17,7 +17,7 @@ import com.mykj.qupingfang.R;
  * Created by jia on 2017/8/5.
  */
 
-public class MineCollectionActivity extends Activity implements View.OnClickListener{
+public class MineCollectionActivity extends Activity implements View.OnClickListener {
 
     // 返回键
     private ImageView iv_collection_back;
@@ -38,26 +38,30 @@ public class MineCollectionActivity extends Activity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mine_collection);
 
-        mContext=MineCollectionActivity.this;
+        mContext = MineCollectionActivity.this;
 
         // 返回键
-        iv_collection_back= (ImageView) findViewById(R.id.iv_collection_back);
+        iv_collection_back = (ImageView) findViewById(R.id.iv_collection_back);
         // 清除
-        tv_collection_clear= (TextView) findViewById(R.id.tv_collection_clear);
+        tv_collection_clear = (TextView) findViewById(R.id.tv_collection_clear);
         // 内容列表
-        rv_collection_content= (RecyclerView) findViewById(R.id.rv_collection_content);
+        rv_collection_content = (RecyclerView) findViewById(R.id.rv_collection_content);
         // 无数据界面
-        rl_collection_no_data= (RelativeLayout) findViewById(R.id.rl_collection_no_data);
+        rl_collection_no_data = (RelativeLayout) findViewById(R.id.rl_collection_no_data);
         // 提示
-        tv_collection_no_data= (TextView) findViewById(R.id.tv_collection_no_data);
+        tv_collection_no_data = (TextView) findViewById(R.id.tv_collection_no_data);
 
         iv_collection_back.setOnClickListener(this);
         tv_collection_clear.setOnClickListener(this);
+
+        tv_collection_clear.setVisibility(View.GONE);
+        tv_collection_no_data.setVisibility(View.VISIBLE);
+        tv_collection_no_data.setText("提示");
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.iv_collection_back:
 
                 finish();
