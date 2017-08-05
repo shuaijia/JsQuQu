@@ -5,4 +5,5 @@ package com.mykj.qupingfang.mine.activity;
  */
 
 public class MineCollectionActivity {
+
 }
