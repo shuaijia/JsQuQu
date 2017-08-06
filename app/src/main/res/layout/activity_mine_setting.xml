@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    android:orientation="vertical">
+
+    <!--标题栏-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh50.0dimens50.0dp"
+        android:background="#00b763">
+
+        <ImageView
+            android:id="@+id/iv_setting_back"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="设置"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <!--清理缓存-->
+    <RelativeLayout
+        android:id="@+id/rl_mine_clear_cache"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh48.0dimens48.0dp"
+        android:layout_marginTop="@dimen/mh10.0dimens10.0dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+            android:text="清理缓存"
+            android:textColor="#454545" />
+
+        <TextView
+            android:id="@+id/tv_mine_cache_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+            android:text="0k" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh1.0dimens1.0dp"
+        android:background="#f2f2f2" />
+
+    <!--意见反馈-->
+    <RelativeLayout
+        android:id="@+id/rl_mine_yjfk"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh48.0dimens48.0dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+            android:text="意见反馈"
+            android:textColor="#454545" />
+
+        <ImageView
+            android:layout_width="@dimen/mh16.0dimens16.0dp"
+            android:layout_height="@dimen/mh16.0dimens16.0dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+            android:src="@mipmap/fragment_mine_rights_next" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh1.0dimens1.0dp"
+        android:background="#f2f2f2" />
+
+    <!--清理缓存-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh48.0dimens48.0dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/mh12.0dimens12.0dp"
+            android:text="版本号"
+            android:textColor="#454545" />
+
+        <TextView
+            android:id="@+id/tv_mine_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/mh12.0dimens12.0dp"
+            android:text="" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_mine_logout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh45.0dimens45.0dp"
+        android:layout_marginTop="@dimen/mh20.0dimens20.0dp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:text="退出登录"
+        android:textColor="#ff0000"
+        android:textSize="16sp" />
+</LinearLayout>

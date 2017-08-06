@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/mh60.0dimens60.0dp"
         android:background="#ffffff"
+        android:paddingTop="2dp"
+        android:paddingBottom="3dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
@@ -24,8 +26,8 @@
             <ImageView
                 android:id="@+id/iv_main_home"
                 android:clickable="false"
-                android:layout_width="@dimen/mh40.0dimens40.0dp"
-                android:layout_height="@dimen/mh40.0dimens40.0dp"
+                android:layout_width="@dimen/mh37.0dimens37.0dp"
+                android:layout_height="@dimen/mh37.0dimens37.0dp"
                 android:background="#a0a0a0"
                 android:src="@mipmap/aa_home"
                 android:layout_alignParentTop="true"
@@ -51,8 +53,8 @@
             <ImageView
                 android:id="@+id/iv_main_lesson"
                 android:clickable="false"
-                android:layout_width="@dimen/mh40.0dimens40.0dp"
-                android:layout_height="@dimen/mh40.0dimens40.0dp"
+                android:layout_width="@dimen/mh37.0dimens37.0dp"
+                android:layout_height="@dimen/mh37.0dimens37.0dp"
                 android:layout_centerHorizontal="true"
                 android:background="#a0a0a0"
                 android:src="@mipmap/aa_lesson" />
@@ -77,8 +79,8 @@
             <ImageView
                 android:id="@+id/iv_main_discover"
                 android:clickable="false"
-                android:layout_width="@dimen/mh40.0dimens40.0dp"
-                android:layout_height="@dimen/mh40.0dimens40.0dp"
+                android:layout_width="@dimen/mh37.0dimens37.0dp"
+                android:layout_height="@dimen/mh37.0dimens37.0dp"
                 android:layout_centerHorizontal="true"
                 android:background="#a0a0a0"
                 android:src="@mipmap/aa_discover" />
@@ -103,8 +105,8 @@
             <ImageView
                 android:id="@+id/iv_main_mine"
                 android:clickable="false"
-                android:layout_width="@dimen/mh40.0dimens40.0dp"
-                android:layout_height="@dimen/mh40.0dimens40.0dp"
+                android:layout_width="@dimen/mh37.0dimens37.0dp"
+                android:layout_height="@dimen/mh37.0dimens37.0dp"
                 android:layout_centerHorizontal="true"
                 android:background="#a0a0a0"
                 android:src="@mipmap/aa_mine" />

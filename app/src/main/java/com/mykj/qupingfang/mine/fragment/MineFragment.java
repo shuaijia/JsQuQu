@@ -17,6 +17,7 @@ import com.mykj.qupingfang.mine.activity.MineConsumeActivity;
 import com.mykj.qupingfang.mine.activity.MineDownloadActivity;
 import com.mykj.qupingfang.mine.activity.MineInformationActivity;
 import com.mykj.qupingfang.mine.activity.MineMessageActivity;
+import com.mykj.qupingfang.mine.activity.MineSettingActivity;
 import com.mykj.qupingfang.mine.activity.MineVersionActivity;
 import com.mykj.qupingfang.mine.activity.MineWatchLogActivity;
 import com.mykj.qupingfang.utils.ToastUtils;
@@ -134,6 +135,11 @@ public class MineFragment extends Fragment implements View.OnClickListener {
             case R.id.rl_mine_reading:
 
                 ToastUtils.showToastSafe(context,"敬请期待");
+
+                break;
+            case R.id.rl_mine_setting:
+
+                startActivity(new Intent(context, MineSettingActivity.class));
 
                 break;
         }

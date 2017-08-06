@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--标题栏-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh50.0dimens50.0dp"
+        android:background="#00b763">
+
+        <ImageView
+            android:id="@+id/iv_callback_back"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="意见反馈"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_callback_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="发送"
+            android:textColor="#fff"
+            android:layout_marginRight="@dimen/mh5.0dimens5.0dp"/>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_callback_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh200.0dimens200.0dp"
+        android:layout_marginLeft="@dimen/mh18.5dimens18.5dp"
+        android:layout_marginRight="@dimen/mh18.5dimens18.5dp"
+        android:layout_marginTop="@dimen/mh16.0dimens16.0dp"
+        android:background="@null"
+        android:gravity="top"
+        android:hint="@string/activity_mine_fankui"
+        android:maxEms="1000"
+        android:textColor="@color/gray_verylight_text_color"
+        android:textSize="12sp" />
+</LinearLayout>

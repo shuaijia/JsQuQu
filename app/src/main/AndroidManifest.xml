@@ -47,9 +47,11 @@
         <activity android:name=".mine.activity.MineMessageActivity" />
         <activity android:name=".mine.activity.MineAccountActivity" />
         <activity android:name=".mine.activity.MineConsumeActivity" />
-        <activity android:name=".mine.activity.MineDownloadActivity"/>
-        <activity android:name=".mine.activity.MineCollectionActivity"/>
-        <activity android:name=".mine.activity.MineWatchLogActivity"/>
+        <activity android:name=".mine.activity.MineDownloadActivity" />
+        <activity android:name=".mine.activity.MineCollectionActivity" />
+        <activity android:name=".mine.activity.MineWatchLogActivity" />
+        <activity android:name=".mine.activity.MineSettingActivity" />
+        <activity android:name=".mine.activity.MineCallBackActivity" />
     </application>
 
 </manifest>
