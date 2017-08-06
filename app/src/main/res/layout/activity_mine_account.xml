@@ -135,8 +135,8 @@
 
             <ImageView
                 android:id="@+id/iv_mine_account_weixin"
-                android:layout_width="@dimen/mh40.0dimens40.0dp"
-                android:layout_height="@dimen/mh40.0dimens40.0dp"
+                android:layout_width="@dimen/mh30.0dimens30.0dp"
+                android:layout_height="@dimen/mh30.0dimens30.0dp"
                 android:layout_centerVertical="true"
                 android:src="@mipmap/wechat_friends_icon" />
 
@@ -180,8 +180,8 @@
 
             <ImageView
                 android:id="@+id/iv_mine_account_ali"
-                android:layout_width="@dimen/mh40.0dimens40.0dp"
-                android:layout_height="@dimen/mh40.0dimens40.0dp"
+                android:layout_width="@dimen/mh30.0dimens30.0dp"
+                android:layout_height="@dimen/mh30.0dimens30.0dp"
                 android:layout_centerVertical="true"
                 android:src="@mipmap/iv_zfbpay_icon" />
 

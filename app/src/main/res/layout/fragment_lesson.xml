@@ -21,6 +21,38 @@
         android:background="@color/white">
 
         <RelativeLayout
+            android:id="@+id/rl_lesson_version"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mh46.0dimens46.0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_lesson_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="人教版"
+                android:textColor="#333"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/iv_lesson_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/mh11.5dimens11.5dp"
+                android:layout_toRightOf="@id/tv_lesson_version"
+                android:src="@mipmap/lesson_version_down_sanjiao" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="@dimen/mh29.0dimens29.0dp"
+            android:layout_gravity="center_vertical"
+            android:background="#f2f2f2" />
+
+        <RelativeLayout
             android:id="@+id/rl_lesson_grade"
             android:layout_width="match_parent"
             android:layout_height="@dimen/mh46.0dimens46.0dp"
@@ -64,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="课程"
+                android:text="全部课程"
                 android:textColor="#333"
                 android:textSize="14sp" />
 
@@ -77,6 +109,8 @@
                 android:layout_toRightOf="@id/tv_lesson_type"
                 android:src="@mipmap/lesson_version_down_sanjiao" />
         </RelativeLayout>
+
+
     </LinearLayout>
 
     <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"

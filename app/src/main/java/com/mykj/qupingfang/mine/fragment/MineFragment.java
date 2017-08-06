@@ -18,6 +18,8 @@ import com.mykj.qupingfang.mine.activity.MineDownloadActivity;
 import com.mykj.qupingfang.mine.activity.MineInformationActivity;
 import com.mykj.qupingfang.mine.activity.MineMessageActivity;
 import com.mykj.qupingfang.mine.activity.MineVersionActivity;
+import com.mykj.qupingfang.mine.activity.MineWatchLogActivity;
+import com.mykj.qupingfang.utils.ToastUtils;
 
 /**
  * Created by Administrator on 2017/7/23.
@@ -78,37 +80,61 @@ public class MineFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.rl_mine_username:
+
                 Intent intent = new Intent(context, MineInformationActivity.class);
-                intent.putExtra("title","个人信息");
+                intent.putExtra("title", "个人信息");
                 startActivity(intent);
+
                 break;
             case R.id.rl_mine_version:
+
                 Intent intent1 = new Intent(context, MineVersionActivity.class);
-                intent1.putExtra("title","教材版本选择");
+                intent1.putExtra("title", "教材版本选择");
                 startActivity(intent1);
+
                 break;
             case R.id.rl_mine_message:
+
                 Intent intent2 = new Intent(context, MineMessageActivity.class);
-                intent2.putExtra("title","消息");
+                intent2.putExtra("title", "消息");
                 startActivity(intent2);
+
                 break;
             case R.id.rl_mine_account:
+
                 Intent intent3 = new Intent(context, MineAccountActivity.class);
-                intent3.putExtra("title","账户充值");
+                intent3.putExtra("title", "账户充值");
                 startActivity(intent3);
+
                 break;
             case R.id.rl_mine_consume:
+
                 Intent intent4 = new Intent(context, MineConsumeActivity.class);
-                intent4.putExtra("title","消费记录");
+                intent4.putExtra("title", "消费记录");
                 startActivity(intent4);
+
                 break;
             case R.id.rl_mine_collect:
+
                 startActivity(new Intent(context, MineCollectionActivity.class));
+
                 break;
             case R.id.rl_mine_cache:
+
                 startActivity(new Intent(context, MineDownloadActivity.class));
+
+                break;
+            case R.id.rl_mine_watch:
+
+                startActivity(new Intent(context, MineWatchLogActivity.class));
+
+                break;
+            case R.id.rl_mine_reading:
+
+                ToastUtils.showToastSafe(context,"敬请期待");
+
                 break;
         }
     }

@@ -336,6 +336,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/mh48.0dimens48.0dp"
                 android:layout_marginTop="@dimen/mh10.0dimens10.0dp"
+                android:layout_marginBottom="@dimen/mh10.0dimens10.0dp"
                 android:background="@color/white">
 
                 <ImageView

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/mh8.0dimens8.0dp"
+    android:paddingLeft="@dimen/mh15.5dimens15.5dp"
+    android:paddingRight="@dimen/mh15.5dimens15.5dp"
+    android:paddingTop="@dimen/mh8.0dimens8.0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/mh8.0dimens8.0dp"
+        android:paddingTop="@dimen/mh8.0dimens8.0dp">
+
+        <Button
+            android:id="@+id/bt_class_one"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/mh46.0dimens46.0dp"
+            android:layout_marginRight="@dimen/mh15.5dimens15.5dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_course_pop_btn"
+            android:text="@string/course_pop_class_one"
+            android:textColor="@drawable/selector_lesson_pop_textcolor" />
+
+        <Button
+            android:id="@+id/bt_class_two"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/mh46.0dimens46.0dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_course_pop_btn"
+            android:text="@string/course_pop_class_two"
+            android:textColor="@drawable/selector_lesson_pop_textcolor" />
+    </LinearLayout>
+</LinearLayout>

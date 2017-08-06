@@ -49,6 +49,7 @@
         <activity android:name=".mine.activity.MineConsumeActivity" />
         <activity android:name=".mine.activity.MineDownloadActivity"/>
         <activity android:name=".mine.activity.MineCollectionActivity"/>
+        <activity android:name=".mine.activity.MineWatchLogActivity"/>
     </application>
 
 </manifest>
