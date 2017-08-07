@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.mykj.qupingfang.R;
 import com.mykj.qupingfang.domain.lesson.Lesson;
 import com.mykj.qupingfang.domain.login.Login;
+import com.mykj.qupingfang.utils.GradeUtils;
 
 import java.util.List;
 
@@ -46,9 +47,9 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHodler
     @Override
     public void onBindViewHolder(ViewHodler holder, int position) {
         Lesson.DataBean dataBean = list.get(position);
-        holder.tv_lesson_grade2.setText(dataBean.getGrade());
+        holder.tv_lesson_grade2.setText(GradeUtils.IntToGrade(dataBean.getGrade()+""));
         holder.tv_lesson_name.setText(dataBean.getTitle());
-        holder.tv_lesson_time.setText(dataBean.getCtime());
+        holder.tv_lesson_time.setText(dataBean.getDuration());
 
         // Glide加载图片必须步骤
         Glide.with(context)

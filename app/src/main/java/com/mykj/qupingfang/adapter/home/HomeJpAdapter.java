@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.mykj.qupingfang.R;
 import com.mykj.qupingfang.domain.home.HomeJp;
+import com.mykj.qupingfang.utils.GradeUtils;
+import com.mykj.qupingfang.utils.TimeUtils;
 
 import java.util.List;
 
@@ -38,15 +40,15 @@ public class HomeJpAdapter extends RecyclerView.Adapter<HomeJpAdapter.HomeJpView
     @Override
     public void onBindViewHolder(HomeJpViewHodler holder, int position) {
         HomeJp.DataBean.ResourceJpBean bean = list.get(position);
-        holder.tv_home_grade.setText(bean.getGrade());
-        holder.tv_home_name.setText(bean.getTitle());
-        holder.tv_home_time.setText(bean.getCtime());
         Glide.with(context)
                 .load("http://test.lovek12.com" + bean.getImg_url())
                 .into(holder.iv_home_grade);
         if (!bean.getPrice().equals("1.00")) {
             holder.iv_home_price.setVisibility(View.GONE);
         }
+        holder.tv_home_time.setText(bean.getDuration());
+        holder.tv_home_grade.setText(GradeUtils.IntToGrade(bean.getGrade()+""));
+        holder.tv_home_name.setText(bean.getTitle());
     }
 
     @Override
