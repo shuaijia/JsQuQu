@@ -10,12 +10,12 @@
         android:id="@+id/ll_main_tab"
         android:layout_width="match_parent"
         android:layout_height="@dimen/mh60.0dimens60.0dp"
-        android:background="#ffffff"
-        android:paddingTop="2dp"
-        android:paddingBottom="3dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:background="#ffffff"
+        android:paddingBottom="3dp"
+        android:paddingTop="2dp">
 
         <RelativeLayout
             android:id="@+id/rl_main_home"
@@ -25,23 +25,23 @@
 
             <ImageView
                 android:id="@+id/iv_main_home"
-                android:clickable="false"
-                android:layout_width="@dimen/mh37.0dimens37.0dp"
-                android:layout_height="@dimen/mh37.0dimens37.0dp"
-                android:background="#a0a0a0"
-                android:src="@mipmap/aa_home"
+                android:layout_width="@dimen/mh35.0dimens35.0dp"
+                android:layout_height="@dimen/mh35.0dimens35.0dp"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:background="#a0a0a0"
+                android:clickable="false"
+                android:src="@mipmap/aa_home" />
 
             <TextView
                 android:id="@+id/tv_main_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/iv_main_home"
-                android:clickable="false"
                 android:layout_centerHorizontal="true"
-                android:textColor="#a0a0a0"
-                android:text="首页" />
+                android:clickable="false"
+                android:text="首页"
+                android:textColor="#a0a0a0" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -52,11 +52,11 @@
 
             <ImageView
                 android:id="@+id/iv_main_lesson"
-                android:clickable="false"
-                android:layout_width="@dimen/mh37.0dimens37.0dp"
-                android:layout_height="@dimen/mh37.0dimens37.0dp"
+                android:layout_width="@dimen/mh35.0dimens35.0dp"
+                android:layout_height="@dimen/mh35.0dimens35.0dp"
                 android:layout_centerHorizontal="true"
                 android:background="#a0a0a0"
+                android:clickable="false"
                 android:src="@mipmap/aa_lesson" />
 
             <TextView
@@ -64,10 +64,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/iv_main_lesson"
-                android:clickable="false"
                 android:layout_centerHorizontal="true"
-                android:textColor="#a0a0a0"
-                android:text="课程" />
+                android:clickable="false"
+                android:text="课程"
+                android:textColor="#a0a0a0" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -78,11 +78,11 @@
 
             <ImageView
                 android:id="@+id/iv_main_discover"
-                android:clickable="false"
-                android:layout_width="@dimen/mh37.0dimens37.0dp"
-                android:layout_height="@dimen/mh37.0dimens37.0dp"
+                android:layout_width="@dimen/mh35.0dimens35.0dp"
+                android:layout_height="@dimen/mh35.0dimens35.0dp"
                 android:layout_centerHorizontal="true"
                 android:background="#a0a0a0"
+                android:clickable="false"
                 android:src="@mipmap/aa_discover" />
 
             <TextView
@@ -90,10 +90,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/iv_main_discover"
-                android:clickable="false"
                 android:layout_centerHorizontal="true"
-                android:textColor="#a0a0a0"
-                android:text="发现" />
+                android:clickable="false"
+                android:text="发现"
+                android:textColor="#a0a0a0" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -104,11 +104,11 @@
 
             <ImageView
                 android:id="@+id/iv_main_mine"
-                android:clickable="false"
-                android:layout_width="@dimen/mh37.0dimens37.0dp"
-                android:layout_height="@dimen/mh37.0dimens37.0dp"
+                android:layout_width="@dimen/mh35.0dimens35.0dp"
+                android:layout_height="@dimen/mh35.0dimens35.0dp"
                 android:layout_centerHorizontal="true"
                 android:background="#a0a0a0"
+                android:clickable="false"
                 android:src="@mipmap/aa_mine" />
 
             <TextView
@@ -116,10 +116,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/iv_main_mine"
-                android:clickable="false"
                 android:layout_centerHorizontal="true"
-                android:textColor="#a0a0a0"
-                android:text="我的" />
+                android:clickable="false"
+                android:text="我的"
+                android:textColor="#a0a0a0" />
         </RelativeLayout>
     </LinearLayout>
 

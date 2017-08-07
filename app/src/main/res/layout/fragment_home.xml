@@ -19,11 +19,11 @@
             android:textSize="16sp" />
 
         <ImageView
+            android:id="@+id/iv_home_more"
             android:layout_width="@dimen/mh30.0dimens30.0dp"
-            android:layout_height="@dimen/mh30.0dimens30.0dp"
+            android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="@dimen/mh8.0dimens8.0dp"
             android:layout_marginRight="@dimen/mh4.0dimens4.0dp"
             android:src="@mipmap/fragment_home_add" />
     </RelativeLayout>
