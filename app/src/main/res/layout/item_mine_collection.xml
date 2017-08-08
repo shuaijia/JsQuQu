@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mcxtzhang.swipemenulib.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_mine_collection_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_mine_collection_img"
+            android:layout_width="@dimen/mh90.0dimens90.0dp"
+            android:layout_height="@dimen/mh65.0dimens65.0dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="15dp" />
+
+        <TextView
+            android:id="@+id/tv_mine_collection_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_mine_collection_img"
+            android:layout_marginLeft="@dimen/mh15.0dimens15.0dp"
+            android:text=""
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#f2f2f2"/>
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_mine_collection_delete"
+        android:layout_width="90dp"
+        android:layout_height="match_parent"
+        android:background="#ff0000"
+        android:gravity="center"
+        android:text="删除"
+        android:textColor="#ffffff" />
+</com.mcxtzhang.swipemenulib.SwipeMenuLayout>

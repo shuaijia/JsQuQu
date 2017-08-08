@@ -12,4 +12,5 @@ public class UrlConfig {
      */
     public static final String BASE_URL="http://api.lovek12.com/v190/";
 
+    public static final String IMAGE_BASE_URL = "http://test.lovek12.com";
 }

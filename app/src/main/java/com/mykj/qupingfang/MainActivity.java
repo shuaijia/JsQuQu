@@ -19,11 +19,11 @@ import com.mykj.qupingfang.discover.fragment.DiscoverFragment;
 import com.mykj.qupingfang.home.fragment.HomeFragment;
 import com.mykj.qupingfang.lesson.fragment.LessonFragment;
 import com.mykj.qupingfang.mine.fragment.MineFragment;
+import com.mykj.qupingfang.utils.SharedPreferencesUtils;
 
 import org.zackratos.ultimatebar.UltimateBar;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -64,6 +64,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
         replaceFragment("home");
         setColor(iv_main_home, tv_main_home);
+
+        // 临时存放userId
+        SharedPreferencesUtils.saveData(MainActivity.this,"userId","487");
     }
 /**
  * 将所有的View都实例化findViewById

@@ -5,9 +5,9 @@ import com.mykj.qupingfang.domain.home.HomeLesson;
 import com.mykj.qupingfang.domain.home.HomeSp;
 import com.mykj.qupingfang.domain.lesson.Lesson;
 import com.mykj.qupingfang.domain.login.Login;
+import com.mykj.qupingfang.domain.mine.CollectionLog;
 
 import retrofit2.http.GET;
-import retrofit2.http.POST;
 import retrofit2.http.Query;
 import rx.Observable;
 
@@ -36,4 +36,7 @@ public interface BaseService {
     Observable<HomeSp> getHomeSp(@Query("resource_type") String resource_type, @Query("size") String size,
                                  @Query("page") String page);
 
+    // 获取我的收藏
+    @GET("index.php?r=user/my-collections&device_type=ad1")
+    Observable<CollectionLog> getCollectionLog(@Query("user_id") String user_id);
 }

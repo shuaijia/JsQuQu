@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,6 +12,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mykj.qupingfang.R;
+import com.mykj.qupingfang.adapter.mine.MineCollectionAdapter;
+import com.mykj.qupingfang.domain.mine.CollectionLog;
+import com.mykj.qupingfang.net.retrofit.HttpMethod;
+import com.mykj.qupingfang.utils.SharedPreferencesUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import rx.Subscriber;
 
 /**
  * 我的收藏界面
@@ -33,6 +43,11 @@ public class MineCollectionActivity extends Activity implements View.OnClickList
     // 上下文
     private Context mContext;
 
+    // 数据列表
+    private List<CollectionLog.Data> list = new ArrayList<>();
+
+    private MineCollectionAdapter adapter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,9 +69,64 @@ public class MineCollectionActivity extends Activity implements View.OnClickList
         iv_collection_back.setOnClickListener(this);
         tv_collection_clear.setOnClickListener(this);
 
+        // 初始化界面
         tv_collection_clear.setVisibility(View.GONE);
-        tv_collection_no_data.setVisibility(View.VISIBLE);
-        tv_collection_no_data.setText("加载中");
+        rl_collection_no_data.setVisibility(View.VISIBLE);
+        tv_collection_no_data.setText("加载中...");
+
+        adapter = new MineCollectionAdapter(mContext);
+
+        initData();
+
+        adapter.setOnDeleteListener(new MineCollectionAdapter.OnDeleteListener() {
+            @Override
+            public void delete(int position) {
+
+                // 请求服务器删除一条记录，成功后执行以下代码
+                adapter.deleteData(position);
+                if (adapter.getItemCount() == 0) {
+                    tv_collection_clear.setVisibility(View.GONE);
+                    rl_collection_no_data.setVisibility(View.VISIBLE);
+                    tv_collection_no_data.setText("您还没有收藏过任何视频");
+                }
+            }
+        });
+    }
+
+    /**
+     * 获取数据
+     */
+    private void initData() {
+
+        HttpMethod.getInstance().getCollectionLogs(SharedPreferencesUtils.getData(mContext, "userId", "0"), new Subscriber<CollectionLog>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(CollectionLog collectionLog) {
+                list = collectionLog.getData();
+                if (list != null && list.size() > 0) {
+                    rv_collection_content.setLayoutManager(new LinearLayoutManager(mContext));
+                    rv_collection_content.setAdapter(adapter);
+                    adapter.addData(list);
+
+                    tv_collection_clear.setVisibility(View.VISIBLE);
+                    rl_collection_no_data.setVisibility(View.GONE);
+                } else {
+                    // 无数据
+                    tv_collection_clear.setVisibility(View.GONE);
+                    rl_collection_no_data.setVisibility(View.VISIBLE);
+                    tv_collection_no_data.setText("您还没有收藏过任何视频");
+                }
+            }
+        });
     }
 
     @Override

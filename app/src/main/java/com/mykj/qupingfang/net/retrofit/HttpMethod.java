@@ -7,6 +7,7 @@ import com.mykj.qupingfang.domain.home.HomeLesson;
 import com.mykj.qupingfang.domain.home.HomeSp;
 import com.mykj.qupingfang.domain.lesson.Lesson;
 import com.mykj.qupingfang.domain.login.Login;
+import com.mykj.qupingfang.domain.mine.CollectionLog;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -30,7 +31,7 @@ import rx.schedulers.Schedulers;
  */
 public class HttpMethod {
 
-    public static final String TAG="HttpMethod";
+    public static final String TAG = "HttpMethod";
 
     // 请求超时
     private static final int TIME_OUT = 5;
@@ -61,9 +62,9 @@ public class HttpMethod {
                 Response originalResponse = chain.proceed(chain.request());
                 //这里获取请求返回的cookie
                 if (!originalResponse.headers("Set-Cookie").isEmpty()) {
-                    if(originalResponse.headers("Set-Cookie").size()==2){
+                    if (originalResponse.headers("Set-Cookie").size() == 2) {
                         CookieUtils.COOKIE = originalResponse.headers("Set-Cookie").get(1);
-                        Log.e(TAG, "intercept: 保存cookie"+CookieUtils.COOKIE);
+                        Log.e(TAG, "intercept: 保存cookie" + CookieUtils.COOKIE);
                     }
                 }
                 return originalResponse;
@@ -76,11 +77,11 @@ public class HttpMethod {
             public Response intercept(Chain chain) throws IOException {
                 Request.Builder builder = chain.request().newBuilder();
 
-                if(null!=CookieUtils.COOKIE){
+                if (null != CookieUtils.COOKIE) {
                     builder.addHeader("Cookie", CookieUtils.COOKIE);
-                    Log.e(TAG, "intercept: 添加cookie"+ CookieUtils.COOKIE);
-                }else{
-                    Log.e(TAG, "intercept: 添加空cookie" );
+                    Log.e(TAG, "intercept: 添加cookie" + CookieUtils.COOKIE);
+                } else {
+                    Log.e(TAG, "intercept: 添加空cookie");
                 }
 
                 return chain.proceed(builder.build());
@@ -135,7 +136,7 @@ public class HttpMethod {
      * @param subscriber
      */
     public void login(String name, String pwd, Subscriber<Login> subscriber) {
-        service.loginWithRxjava(name,pwd)
+        service.loginWithRxjava(name, pwd)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
@@ -143,6 +144,7 @@ public class HttpMethod {
 
     /**
      * 获取首页精品数据
+     *
      * @param subscriber
      */
     public void getHomeJp(Subscriber<HomeJp> subscriber) {
@@ -161,8 +163,8 @@ public class HttpMethod {
      * @param size
      * @param subscriber
      */
-    public void getLesson(String grade_id, String course_type, String page,String size,Subscriber<Lesson> subscriber) {
-        service.getLesson(grade_id,course_type,page,size)
+    public void getLesson(String grade_id, String course_type, String page, String size, Subscriber<Lesson> subscriber) {
+        service.getLesson(grade_id, course_type, page, size)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
@@ -176,8 +178,8 @@ public class HttpMethod {
      * @param page
      * @param subscriber
      */
-    public void getHomeLesson(String resource_type, String size, String page,Subscriber<HomeLesson> subscriber) {
-        service.getHomeLesson(resource_type,size,page)
+    public void getHomeLesson(String resource_type, String size, String page, Subscriber<HomeLesson> subscriber) {
+        service.getHomeLesson(resource_type, size, page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
@@ -191,8 +193,20 @@ public class HttpMethod {
      * @param page
      * @param subscriber
      */
-    public void getHomeSp(String resource_type, String size, String page,Subscriber<HomeSp> subscriber) {
-        service.getHomeSp(resource_type,size,page)
+    public void getHomeSp(String resource_type, String size, String page, Subscriber<HomeSp> subscriber) {
+        service.getHomeSp(resource_type, size, page)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /**
+     * 获取收藏记录
+     *
+     * @param userId
+     */
+    public void getCollectionLogs(String userId, Subscriber<CollectionLog> subscriber) {
+        service.getCollectionLog(userId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
