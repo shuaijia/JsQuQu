@@ -8,6 +8,7 @@ import com.mykj.qupingfang.domain.home.HomeSp;
 import com.mykj.qupingfang.domain.lesson.Lesson;
 import com.mykj.qupingfang.domain.login.Login;
 import com.mykj.qupingfang.domain.mine.CollectionLog;
+import com.mykj.qupingfang.domain.mine.DeleteMyCollection;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -207,6 +208,30 @@ public class HttpMethod {
      */
     public void getCollectionLogs(String userId, Subscriber<CollectionLog> subscriber) {
         service.getCollectionLog(userId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /**
+     * 删除单个收藏记录
+     *
+     * @param userId
+     */
+    public void deleteOneCollection(String userId, String resourceId, Subscriber<DeleteMyCollection> subscriber) {
+        service.deleteOneCollection(userId, resourceId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /**
+     * 删除全部收藏记录
+     *
+     * @param userId
+     */
+    public void deleteAllCollection(String userId, String flag, Subscriber<DeleteMyCollection> subscriber) {
+        service.deleteAllCollection(userId, flag)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);

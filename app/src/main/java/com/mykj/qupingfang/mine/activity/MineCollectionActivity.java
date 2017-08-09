@@ -14,8 +14,10 @@ import android.widget.TextView;
 import com.mykj.qupingfang.R;
 import com.mykj.qupingfang.adapter.mine.MineCollectionAdapter;
 import com.mykj.qupingfang.domain.mine.CollectionLog;
+import com.mykj.qupingfang.domain.mine.DeleteMyCollection;
 import com.mykj.qupingfang.net.retrofit.HttpMethod;
 import com.mykj.qupingfang.utils.SharedPreferencesUtils;
+import com.mykj.qupingfang.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,12 +85,16 @@ public class MineCollectionActivity extends Activity implements View.OnClickList
             public void delete(int position) {
 
                 // 请求服务器删除一条记录，成功后执行以下代码
-                adapter.deleteData(position);
-                if (adapter.getItemCount() == 0) {
-                    tv_collection_clear.setVisibility(View.GONE);
-                    rl_collection_no_data.setVisibility(View.VISIBLE);
-                    tv_collection_no_data.setText("您还没有收藏过任何视频");
-                }
+                deleteOne(position, list.get(position).getResource().getResource_id() + "");
+            }
+        });
+
+        adapter.setOnItemClickListener(new MineCollectionAdapter.OnItemClickListener() {
+            @Override
+            public void onClick(int position) {
+                // 点击条目 跳转详情界面
+//                ToastUtils.showToastSafe(mContext, list.get(position).getResource().getResource_id() + "");
+                ToastUtils.showToastSafe(mContext, adapter.getItem(position).getResource().getTitle() + "");
             }
         });
     }
@@ -139,8 +145,62 @@ public class MineCollectionActivity extends Activity implements View.OnClickList
                 break;
             case R.id.tv_collection_clear:
 
+                deleteAll();
 
                 break;
         }
+    }
+
+    /**
+     * 删除单个记录
+     *
+     * @param resourseId
+     */
+    public void deleteOne(final int position, String resourseId) {
+        HttpMethod.getInstance().deleteOneCollection(SharedPreferencesUtils.getData(mContext, "userId", "0"), resourseId, new Subscriber<DeleteMyCollection>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(DeleteMyCollection deleteMyCollection) {
+                adapter.deleteData(position);
+                if (adapter.getItemCount() == 0) {
+                    tv_collection_clear.setVisibility(View.GONE);
+                    rl_collection_no_data.setVisibility(View.VISIBLE);
+                    tv_collection_no_data.setText("您还没有收藏过任何视频");
+                }
+            }
+        });
+    }
+
+    /**
+     * 删除全部记录
+     */
+    public void deleteAll(){
+        HttpMethod.getInstance().deleteAllCollection(SharedPreferencesUtils.getData(mContext, "userId", "0"), "1", new Subscriber<DeleteMyCollection>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(DeleteMyCollection deleteMyCollection) {
+                tv_collection_clear.setVisibility(View.GONE);
+                rl_collection_no_data.setVisibility(View.VISIBLE);
+                tv_collection_no_data.setText("您还没有收藏过任何视频");
+            }
+        });
     }
 }

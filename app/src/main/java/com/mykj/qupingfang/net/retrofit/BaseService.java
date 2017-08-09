@@ -6,6 +6,7 @@ import com.mykj.qupingfang.domain.home.HomeSp;
 import com.mykj.qupingfang.domain.lesson.Lesson;
 import com.mykj.qupingfang.domain.login.Login;
 import com.mykj.qupingfang.domain.mine.CollectionLog;
+import com.mykj.qupingfang.domain.mine.DeleteMyCollection;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -39,4 +40,12 @@ public interface BaseService {
     // 获取我的收藏
     @GET("index.php?r=user/my-collections&device_type=ad1")
     Observable<CollectionLog> getCollectionLog(@Query("user_id") String user_id);
+
+    // 删除单个收藏记录
+    @GET("index.php?r=resource/un-collection&device_type=ad1")
+    Observable<DeleteMyCollection> deleteOneCollection(@Query("user_id") String user_id, @Query("resource_id") String resource_id);
+
+    // 删除单个收藏记录
+    @GET("index.php?r=resource/un-collection&device_type=ad1")
+    Observable<DeleteMyCollection> deleteAllCollection(@Query("user_id") String user_id, @Query("flag") String flag);
 }

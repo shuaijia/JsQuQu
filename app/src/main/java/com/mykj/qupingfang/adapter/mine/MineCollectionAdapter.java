@@ -70,6 +70,10 @@ public class MineCollectionAdapter extends RecyclerView.Adapter<MineCollectionAd
         });
     }
 
+    public CollectionLog.Data getItem(int position){
+        return list.get(position);
+    }
+
     @Override
     public int getItemCount() {
         return list.size();
@@ -85,6 +89,7 @@ public class MineCollectionAdapter extends RecyclerView.Adapter<MineCollectionAd
         if(list.size()>0){
             list.remove(position);
             notifyItemRemoved(position);
+            notifyDataSetChanged();
         }
     }
 
