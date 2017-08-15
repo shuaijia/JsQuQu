@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mykj.qupingfang.R;
 import com.mykj.qupingfang.adapter.mine.MineCollectionAdapter;
@@ -17,6 +18,8 @@ import com.mykj.qupingfang.base.BasePresenter;
 import com.mykj.qupingfang.base.BaseViewActivity;
 import com.mykj.qupingfang.domain.mine.CollectionLog;
 import com.mykj.qupingfang.domain.mine.DeleteMyCollection;
+import com.mykj.qupingfang.mine.contract.MineCollectionContract;
+import com.mykj.qupingfang.mine.presenter.MineCollectionPresenter;
 import com.mykj.qupingfang.net.retrofit.HttpMethod;
 import com.mykj.qupingfang.utils.SharedPreferencesUtils;
 import com.mykj.qupingfang.utils.ToastUtils;
@@ -31,7 +34,8 @@ import rx.Subscriber;
  * Created by jia on 2017/8/5.
  */
 
-public class MineCollectionActivity extends BaseViewActivity implements View.OnClickListener {
+public class MineCollectionActivity extends BaseViewActivity<MineCollectionContract.MineCollectionView,MineCollectionPresenter> implements
+        MineCollectionContract.MineCollectionView,View.OnClickListener {
 
     // 返回键
     private ImageView iv_collection_back;
@@ -83,7 +87,8 @@ public class MineCollectionActivity extends BaseViewActivity implements View.OnC
 
         adapter = new MineCollectionAdapter(mContext);
 
-        initData();
+        //initData();
+        mPresenter.getCollectionLogs(SharedPreferencesUtils.getData(mContext, "userId", "0"));
 
         adapter.setOnDeleteListener(new MineCollectionAdapter.OnDeleteListener() {
             @Override
@@ -105,9 +110,10 @@ public class MineCollectionActivity extends BaseViewActivity implements View.OnC
     }
 
     @Override
-    protected BasePresenter createPresenter() {
-        return null;
+    protected MineCollectionPresenter createPresenter() {
+        return new MineCollectionPresenter(this);
     }
+
 
     @Override
     protected void getData() {
@@ -217,5 +223,29 @@ public class MineCollectionActivity extends BaseViewActivity implements View.OnC
                 tv_collection_no_data.setText("您还没有收藏过任何视频");
             }
         });
+    }
+
+    @Override
+    public void getCollectionLogsSuccess(CollectionLog collectionLog) {
+
+        list = collectionLog.getData();
+        if (list != null && list.size() > 0) {
+            rv_collection_content.setLayoutManager(new LinearLayoutManager(mContext));
+            rv_collection_content.setAdapter(adapter);
+            adapter.addData(list);
+
+            tv_collection_clear.setVisibility(View.VISIBLE);
+            rl_collection_no_data.setVisibility(View.GONE);
+        } else {
+            // 无数据
+            tv_collection_clear.setVisibility(View.GONE);
+            rl_collection_no_data.setVisibility(View.VISIBLE);
+            tv_collection_no_data.setText("您还没有收藏过任何视频");
+        }
+    }
+
+    @Override
+    public void getCollectionLogsError(String errorMsg) {
+        Toast.makeText(this,errorMsg,Toast.LENGTH_SHORT).show();
     }
 }
