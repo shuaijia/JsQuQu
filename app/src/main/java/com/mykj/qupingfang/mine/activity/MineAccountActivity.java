@@ -20,9 +20,13 @@ public class MineAccountActivity extends BaseViewActivity implements View.OnClic
     private RadioButton tv_mine_account_300;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initActivityView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_mine_account);
+
+    }
+
+    @Override
+    protected void findViewById() {
         tx_my_title = (TextView) findViewById(R.id.tx_my_title);
         Intent intent = getIntent();
         String title = intent.getStringExtra("title");
@@ -34,16 +38,6 @@ public class MineAccountActivity extends BaseViewActivity implements View.OnClic
         tv_mine_account_30.setOnClickListener(this);
         tv_mine_account_100.setOnClickListener(this);
         tv_mine_account_300.setOnClickListener(this);
-    }
-
-    @Override
-    protected void initActivityView(Bundle savedInstanceState) {
-
-    }
-
-    @Override
-    protected void findViewById() {
-
     }
 
     @Override

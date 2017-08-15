@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.mykj.qupingfang.R;
 import com.mykj.qupingfang.adapter.mine.MineCollectionAdapter;
+import com.mykj.qupingfang.base.BasePresenter;
+import com.mykj.qupingfang.base.BaseViewActivity;
 import com.mykj.qupingfang.domain.mine.CollectionLog;
 import com.mykj.qupingfang.domain.mine.DeleteMyCollection;
 import com.mykj.qupingfang.net.retrofit.HttpMethod;
@@ -29,7 +31,7 @@ import rx.Subscriber;
  * Created by jia on 2017/8/5.
  */
 
-public class MineCollectionActivity extends Activity implements View.OnClickListener {
+public class MineCollectionActivity extends BaseViewActivity implements View.OnClickListener {
 
     // 返回键
     private ImageView iv_collection_back;
@@ -51,10 +53,13 @@ public class MineCollectionActivity extends Activity implements View.OnClickList
     private MineCollectionAdapter adapter;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initActivityView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_mine_collection);
 
+    }
+
+    @Override
+    protected void findViewById() {
         mContext = MineCollectionActivity.this;
 
         // 返回键
@@ -97,6 +102,16 @@ public class MineCollectionActivity extends Activity implements View.OnClickList
                 ToastUtils.showToastSafe(mContext, adapter.getItem(position).getResource().getTitle() + "");
             }
         });
+    }
+
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
+    }
+
+    @Override
+    protected void getData() {
+
     }
 
     /**

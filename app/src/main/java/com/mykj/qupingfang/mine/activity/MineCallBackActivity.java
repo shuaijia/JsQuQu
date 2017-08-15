@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mykj.qupingfang.R;
+import com.mykj.qupingfang.base.BasePresenter;
+import com.mykj.qupingfang.base.BaseViewActivity;
 
 /**
  * Describtion：意见反馈界面
@@ -17,7 +19,7 @@ import com.mykj.qupingfang.R;
  * 滴水穿石，非一日之功
  */
 
-public class MineCallBackActivity extends Activity implements View.OnClickListener{
+public class MineCallBackActivity extends BaseViewActivity implements View.OnClickListener{
 
     // 返回键
     private ImageView iv_callback_back;
@@ -32,10 +34,13 @@ public class MineCallBackActivity extends Activity implements View.OnClickListen
     private String content="";
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initActivityView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_mine_callback);
 
+    }
+
+    @Override
+    protected void findViewById() {
         mContext=MineCallBackActivity.this;
 
         // 返回键
@@ -46,6 +51,16 @@ public class MineCallBackActivity extends Activity implements View.OnClickListen
         tv_callback_send.setOnClickListener(this);
         // 输入框
         et_callback_content= (EditText) findViewById(R.id.et_callback_content);
+    }
+
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
+    }
+
+    @Override
+    protected void getData() {
+
     }
 
     @Override

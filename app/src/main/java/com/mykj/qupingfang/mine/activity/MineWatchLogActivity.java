@@ -11,6 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mykj.qupingfang.R;
+import com.mykj.qupingfang.base.BasePresenter;
+import com.mykj.qupingfang.base.BaseViewActivity;
 
 /**
  * Describtion：观看记录界面
@@ -18,7 +20,7 @@ import com.mykj.qupingfang.R;
  * 滴水穿石，非一日之功
  */
 
-public class MineWatchLogActivity extends Activity implements View.OnClickListener{
+public class MineWatchLogActivity extends BaseViewActivity implements View.OnClickListener{
 
     // 返回键
     private ImageView iv_watch_log_back;
@@ -38,12 +40,15 @@ public class MineWatchLogActivity extends Activity implements View.OnClickListen
     //
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initActivityView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_mine_watch_log);
         mContext=MineWatchLogActivity.this;
 
-        // 返回键
+    }
+
+    @Override
+    protected void findViewById() {
+// 返回键
         iv_watch_log_back= (ImageView) findViewById(R.id.iv_watch_log_back);
         // 清除
         tv_watch_log_clear= (TextView) findViewById(R.id.tv_watch_log_clear);
@@ -60,6 +65,16 @@ public class MineWatchLogActivity extends Activity implements View.OnClickListen
         tv_watch_log_clear.setVisibility(View.GONE);
         rl_collection_no_data.setVisibility(View.VISIBLE);
         tv_watch_log_no_data.setText("加载中...");
+    }
+
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
+    }
+
+    @Override
+    protected void getData() {
+
     }
 
     @Override

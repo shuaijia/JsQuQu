@@ -10,8 +10,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mykj.qupingfang.R;
+import com.mykj.qupingfang.base.BasePresenter;
+import com.mykj.qupingfang.base.BaseViewActivity;
 
-public class MineDownloadActivity extends Activity implements View.OnClickListener{
+public class MineDownloadActivity extends BaseViewActivity implements View.OnClickListener{
 
     // 返回键
     private ImageView iv_download_back;
@@ -31,9 +33,19 @@ public class MineDownloadActivity extends Activity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+    }
+
+    @Override
+    protected void initActivityView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_mine_download);
 
-        // 返回键
+    }
+
+    @Override
+    protected void findViewById() {
+// 返回键
         iv_download_back= (ImageView) findViewById(R.id.iv_download_back);
         // 清除
         tv_download_clear= (TextView) findViewById(R.id.tv_download_clear);
@@ -50,6 +62,16 @@ public class MineDownloadActivity extends Activity implements View.OnClickListen
         tv_download_clear.setVisibility(View.GONE);
         rl_download_no_data.setVisibility(View.VISIBLE);
         tv_download_no_data.setText("加载中");
+    }
+
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
+    }
+
+    @Override
+    protected void getData() {
+
     }
 
     @Override

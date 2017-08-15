@@ -13,23 +13,17 @@ public class MineConsumeActivity extends BaseViewActivity {
     private TextView tx_my_title;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mine_consume);
-        tx_my_title = (TextView) findViewById(R.id.tx_my_title);
-        Intent intent = getIntent();
-        String title = intent.getStringExtra("title");
-        tx_my_title.setText(title);
-    }
-
-    @Override
     protected void initActivityView(Bundle savedInstanceState) {
+        setContentView(R.layout.activity_mine_consume);
 
     }
 
     @Override
     protected void findViewById() {
-
+        tx_my_title = (TextView) findViewById(R.id.tx_my_title);
+        Intent intent = getIntent();
+        String title = intent.getStringExtra("title");
+        tx_my_title.setText(title);
     }
 
     @Override

@@ -13,6 +13,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mykj.qupingfang.R;
+import com.mykj.qupingfang.base.BasePresenter;
+import com.mykj.qupingfang.base.BaseViewActivity;
 import com.mykj.qupingfang.utils.DataCleanManager;
 import com.mykj.qupingfang.utils.ToastUtils;
 
@@ -22,7 +24,7 @@ import com.mykj.qupingfang.utils.ToastUtils;
  * 滴水穿石，非一日之功
  */
 
-public class MineSettingActivity extends Activity implements View.OnClickListener {
+public class MineSettingActivity extends BaseViewActivity implements View.OnClickListener {
 
     // 返回键
     private ImageView iv_setting_back;
@@ -44,9 +46,13 @@ public class MineSettingActivity extends Activity implements View.OnClickListene
     private String cacheSize = "0k";
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initActivityView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_mine_setting);
+
+    }
+
+    @Override
+    protected void findViewById() {
         mContext = MineSettingActivity.this;
 
         // 返回键
@@ -76,6 +82,16 @@ public class MineSettingActivity extends Activity implements View.OnClickListene
             e.printStackTrace();
         }
         tv_mine_cache_size.setText(cacheSize);
+    }
+
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
+    }
+
+    @Override
+    protected void getData() {
+
     }
 
     @Override
