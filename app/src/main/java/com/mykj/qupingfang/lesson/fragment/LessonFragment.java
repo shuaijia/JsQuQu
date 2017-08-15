@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
@@ -26,8 +27,10 @@ import com.lcodecore.tkrefreshlayout.footer.LoadingView;
 import com.lcodecore.tkrefreshlayout.header.SinaRefreshView;
 import com.mykj.qupingfang.R;
 import com.mykj.qupingfang.adapter.lesson.LessonAdapter;
+import com.mykj.qupingfang.base.BaseFragment;
 import com.mykj.qupingfang.domain.lesson.Lesson;
-import com.mykj.qupingfang.net.retrofit.HttpMethod;
+import com.mykj.qupingfang.lesson.contract.LessonContract;
+import com.mykj.qupingfang.lesson.presenter.LessonPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,12 +38,12 @@ import java.util.List;
 import rx.Subscriber;
 
 /**
- * Describtion：
+ * Describtion：课程碎片
  * Created by kangbai on 2017/7/22.
  * 滴水穿石，非一日之功
  */
 
-public class LessonFragment extends Fragment implements View.OnClickListener {
+public class LessonFragment extends BaseFragment<LessonContract.LessonView,LessonPresenter> implements LessonContract.LessonView,View.OnClickListener {
 
     private static final String TAG = "LessonFragment";
 
@@ -93,10 +96,9 @@ public class LessonFragment extends Fragment implements View.OnClickListener {
         rv_lesson_content.setAdapter(adapter);
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_lesson, container, false);//渲染Fragment
+    protected View initFragmentView(LayoutInflater inflater) {
+        View view = inflater.inflate(R.layout.fragment_lesson, null, false);//渲染Fragment
 
         //年级
         // 设置popwindow填充的view
@@ -142,28 +144,44 @@ public class LessonFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
+    protected void initFragmentChildView(View view) {
         allFindViewById(view);
-
         //设置下拉刷新监听事件
         refreshLayout.setOnRefreshListener(new RefreshListenerAdapter() {
             @Override
             public void onRefresh(final TwinklingRefreshLayout refreshLayout) {
                 isRefresh = true;
                 pageNum = 1;
-                initData();
+                mPresenter.getLesson("0", "0", pageNum + "", pageSize + "");
             }
 
             @Override
             public void onLoadMore(final TwinklingRefreshLayout refreshLayout) {
                 isRefresh = false;
                 pageNum++;
-                initData();
+                mPresenter.getLesson("0", "0", pageNum + "", pageSize + "");
             }
         });
         refreshLayout.startRefresh();
+    }
+
+    @Override
+    protected void initFragmentData(Bundle savedInstanceState) {
+        context = getActivity();
+
+        refreshLayout.setHeaderView(new SinaRefreshView(context));
+        refreshLayout.setBottomView(new LoadingView(context));
+
+        //设置表格布局，2表示两列
+        manager = new GridLayoutManager(context, 2);
+        rv_lesson_content.setLayoutManager(manager);
+        adapter = new LessonAdapter(context);
+        rv_lesson_content.setAdapter(adapter);
+    }
+
+    @Override
+    protected LessonPresenter createPresenter() {
+        return new LessonPresenter(this);
     }
 
     private void allFindViewById(View view) {
@@ -183,34 +201,6 @@ public class LessonFragment extends Fragment implements View.OnClickListener {
         refreshLayout = (TwinklingRefreshLayout) view.findViewById(R.id.refreshLayout);
         refreshLayout.setEnableOverScroll(false);
 
-    }
-
-    private void initData() {
-        HttpMethod.getInstance().getLesson("0", "0", pageNum + "", pageSize + "", new Subscriber<Lesson>() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(Lesson lesson) {
-                if (isRefresh) {
-                    list.clear();
-                    list.addAll(lesson.getData());
-                    refreshLayout.finishRefreshing();
-                } else {
-                    list.addAll(lesson.getData());
-                    refreshLayout.finishLoadmore();
-                }
-
-                adapter.addData(list);
-            }
-        });
     }
 
     @Override
@@ -258,5 +248,24 @@ public class LessonFragment extends Fragment implements View.OnClickListener {
         iv_lesson_type.setImageResource(R.mipmap.lesson_version_up_sanjiao);
         typePopwindow.setBackgroundDrawable(new ColorDrawable(Color.WHITE));
         typePopwindow.showAsDropDown(rl_lesson_version);
+    }
+
+    @Override
+    public void getLessonSuccess(Lesson lesson) {
+        if (isRefresh) {
+            list.clear();
+            list.addAll(lesson.getData());
+            refreshLayout.finishRefreshing();
+        } else {
+            list.addAll(lesson.getData());
+            refreshLayout.finishLoadmore();
+        }
+
+        adapter.addData(list);
+    }
+
+    @Override
+    public void getLessonError(String errorMsg) {
+        Toast.makeText(context,"获取课程数据失败"+errorMsg,Toast.LENGTH_SHORT).show();
     }
 }
