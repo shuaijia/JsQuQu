@@ -2,6 +2,7 @@ package com.mykj.qupingfang.mine.presenter;
 
 import com.mykj.qupingfang.base.BasePresenter;
 import com.mykj.qupingfang.domain.mine.CollectionLog;
+import com.mykj.qupingfang.domain.mine.DeleteMyCollection;
 import com.mykj.qupingfang.mine.contract.MineCollectionContract;
 import com.mykj.qupingfang.mine.model.MineCollectionModelImpl;
 
@@ -30,6 +31,20 @@ public class MineCollectionPresenter extends BasePresenter<MineCollectionContrac
             @Override
             public void onError(String errorMsg) {
                 view.getCollectionLogsError(errorMsg);
+            }
+        });
+    }
+
+    public void deleteOneCollection(final int position, String userId, String resourseId) {
+        model.deleteOneCollection(position, userId, resourseId, new MineCollectionContract.DeleteOneCollectionCallBack() {
+            @Override
+            public void onSuccess(DeleteMyCollection deleteMyCollection) {
+                view.deleteOneCollectionSuccess(position, deleteMyCollection);
+            }
+
+            @Override
+            public void onError(String errorMsg) {
+                view.deleteOneCollectionError(errorMsg);
             }
         });
     }

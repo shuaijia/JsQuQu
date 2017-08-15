@@ -1,6 +1,7 @@
 package com.mykj.qupingfang.mine.model;
 
 import com.mykj.qupingfang.domain.mine.CollectionLog;
+import com.mykj.qupingfang.domain.mine.DeleteMyCollection;
 import com.mykj.qupingfang.mine.contract.MineCollectionContract;
 import com.mykj.qupingfang.net.retrofit.HttpMethod;
 
@@ -27,6 +28,26 @@ public class MineCollectionModelImpl implements MineCollectionContract.MineColle
             @Override
             public void onNext(CollectionLog collectionLog) {
                 mineCollectionCallBack.onSuccess(collectionLog);
+            }
+        });
+    }
+
+    @Override
+    public void deleteOneCollection(int position, String userId, String resourseId, final MineCollectionContract.DeleteOneCollectionCallBack deleteOneCollectionCallBack) {
+        HttpMethod.getInstance().deleteOneCollection(userId, resourseId, new Subscriber<DeleteMyCollection>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                deleteOneCollectionCallBack.onError(e.toString());
+            }
+
+            @Override
+            public void onNext(DeleteMyCollection deleteMyCollection) {
+                deleteOneCollectionCallBack.onSuccess(deleteMyCollection);
             }
         });
     }

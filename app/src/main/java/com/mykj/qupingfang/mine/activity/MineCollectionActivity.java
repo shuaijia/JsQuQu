@@ -34,8 +34,8 @@ import rx.Subscriber;
  * Created by jia on 2017/8/5.
  */
 
-public class MineCollectionActivity extends BaseViewActivity<MineCollectionContract.MineCollectionView,MineCollectionPresenter> implements
-        MineCollectionContract.MineCollectionView,View.OnClickListener {
+public class MineCollectionActivity extends BaseViewActivity<MineCollectionContract.MineCollectionView, MineCollectionPresenter> implements
+        MineCollectionContract.MineCollectionView, View.OnClickListener {
 
     // 返回键
     private ImageView iv_collection_back;
@@ -95,7 +95,9 @@ public class MineCollectionActivity extends BaseViewActivity<MineCollectionContr
             public void delete(int position) {
 
                 // 请求服务器删除一条记录，成功后执行以下代码
-                deleteOne(position, list.get(position).getResource().getResource_id() + "");
+                //deleteOne(position, list.get(position).getResource().getResource_id() + "");
+                mPresenter.deleteOneCollection(position, SharedPreferencesUtils.getData(mContext, "userId", "0"),
+                        list.get(position).getResource().getResource_id() + "");
             }
         });
 
@@ -166,7 +168,9 @@ public class MineCollectionActivity extends BaseViewActivity<MineCollectionContr
                 break;
             case R.id.tv_collection_clear:
 
-                deleteAll();
+                //deleteAll();
+                mPresenter.deleteOneCollection(-1, SharedPreferencesUtils.getData(mContext, "userId", "0"),
+                        "1");
 
                 break;
         }
@@ -204,7 +208,7 @@ public class MineCollectionActivity extends BaseViewActivity<MineCollectionContr
     /**
      * 删除全部记录
      */
-    public void deleteAll(){
+    public void deleteAll() {
         HttpMethod.getInstance().deleteAllCollection(SharedPreferencesUtils.getData(mContext, "userId", "0"), "1", new Subscriber<DeleteMyCollection>() {
             @Override
             public void onCompleted() {
@@ -246,6 +250,28 @@ public class MineCollectionActivity extends BaseViewActivity<MineCollectionContr
 
     @Override
     public void getCollectionLogsError(String errorMsg) {
-        Toast.makeText(this,errorMsg,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void deleteOneCollectionSuccess(int position, DeleteMyCollection deleteMyCollection) {
+        if (position == -1) {
+            Toast.makeText(this,"删除全部成功！",Toast.LENGTH_SHORT).show();
+        }else {
+            adapter.deleteData(position);
+            if (adapter.getItemCount() == 0) {
+                tv_collection_clear.setVisibility(View.GONE);
+                rl_collection_no_data.setVisibility(View.VISIBLE);
+                tv_collection_no_data.setText("您还没有收藏过任何视频");
+            }
+            Toast.makeText(this,"删除第"+position+"个成功！"+list.get(position).getResource().getTitle(),Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void deleteOneCollectionError(String errorMsg) {
+        Toast.makeText(this,"删除失败！",Toast.LENGTH_SHORT).show();
+    }
+
+
 }
