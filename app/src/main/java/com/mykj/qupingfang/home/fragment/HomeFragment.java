@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.mykj.qupingfang.R;
@@ -28,6 +29,8 @@ import com.mykj.qupingfang.adapter.home.HomeZtAdapter;
 import com.mykj.qupingfang.base.BaseFragment;
 import com.mykj.qupingfang.domain.home.HomeJp;
 import com.mykj.qupingfang.home.activity.MoreActivity;
+import com.mykj.qupingfang.home.contract.HomeContract;
+import com.mykj.qupingfang.home.presenter.HomePresenter;
 import com.mykj.qupingfang.net.retrofit.HttpMethod;
 import com.mykj.qupingfang.utils.ToastUtils;
 import com.mykj.qupingfang.view.JsPopupWindow;
@@ -43,7 +46,7 @@ import rx.Subscriber;
  * Created by Administrator on 2017/7/23.
  */
 
-public class HomeFragment extends Fragment implements View.OnClickListener {
+public class HomeFragment extends BaseFragment<HomeContract.HomeView, HomePresenter> implements HomeContract.HomeView, View.OnClickListener {
 
     private static final String TAG = "HomeFragment";
 
@@ -78,29 +81,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private JsPopupWindow popWindow;
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        this.context=context;
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+    protected View initFragmentView(LayoutInflater inflater) {
+        return inflater.inflate(R.layout.fragment_home, null, false);
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        allFindViewById(view);
-
-        intiData();
-
-        initPopWindow();
-    }
-
-    private void allFindViewById(View view) {
+    protected void initFragmentChildView(View view) {
         rv_home_kcjp = (RecyclerView) view.findViewById(R.id.rv_home_kcjp);
         rv_home_zjgx = (RecyclerView) view.findViewById(R.id.rv_home_zjgx);
         rv_home_spzt = (RecyclerView) view.findViewById(R.id.rv_home_spzt);
@@ -113,33 +99,19 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         tv_home_spzt.setOnClickListener(this);
         iv_home_more = (ImageView) view.findViewById(R.id.iv_home_more);
         iv_home_more.setOnClickListener(this);
+
+        mPresenter.getHomeJp();
     }
 
-    private void intiData() {
-        HttpMethod.getInstance().getHomeJp(new Subscriber<HomeJp>() {
-            @Override
-            public void onCompleted() {
+    @Override
+    protected void initFragmentData(Bundle savedInstanceState) {
+        context = getActivity();
+        initPopWindow();
+    }
 
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(HomeJp homejp) {
-
-                setJpRecyclerView(homejp);
-
-                setZjRecyclerView(homejp);
-
-                setZtRecyclerView(homejp);
-
-                setHomeBanner(homejp);
-
-            }
-        });
+    @Override
+    protected HomePresenter createPresenter() {
+        return new HomePresenter(this);
     }
 
     private void setJpRecyclerView(HomeJp homejp) {
@@ -224,31 +196,31 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.iv_home_more:
 
-                if(popWindow.isShowing()){
+                if (popWindow.isShowing()) {
                     popWindow.dismiss();
-                }else {
-                    popWindow.showAsLocation(iv_home_more, Gravity.BOTTOM |Gravity.RIGHT, 30, 0);
+                } else {
+                    popWindow.showAsLocation(iv_home_more, Gravity.BOTTOM | Gravity.RIGHT, 30, 0);
                 }
 
                 break;
             // 搜索
             case R.id.ll_home_more_search:
 
-                ToastUtils.showToastSafe(context,"搜索");
+                ToastUtils.showToastSafe(context, "搜索");
                 popWindow.dismiss();
 
                 break;
             // 扫一扫
             case R.id.ll_home_more_scan:
 
-                ToastUtils.showToastSafe(context,"扫一扫");
+                ToastUtils.showToastSafe(context, "扫一扫");
                 popWindow.dismiss();
 
                 break;
             // AR
             case R.id.ll_home_more_ar:
 
-                ToastUtils.showToastSafe(context,"敬请期待");
+                ToastUtils.showToastSafe(context, "敬请期待");
                 popWindow.dismiss();
 
                 break;
@@ -268,14 +240,30 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 .build();
 
         // 搜索
-        ll_home_more_search= (LinearLayout) popWindow.getItemView(R.id.ll_home_more_search);
+        ll_home_more_search = (LinearLayout) popWindow.getItemView(R.id.ll_home_more_search);
         ll_home_more_search.setOnClickListener(this);
         // 扫一扫
-        ll_home_more_scan= (LinearLayout) popWindow.getItemView(R.id.ll_home_more_scan);
+        ll_home_more_scan = (LinearLayout) popWindow.getItemView(R.id.ll_home_more_scan);
         ll_home_more_scan.setOnClickListener(this);
         // ar
-        ll_home_more_ar= (LinearLayout) popWindow.getItemView(R.id.ll_home_more_ar);
+        ll_home_more_ar = (LinearLayout) popWindow.getItemView(R.id.ll_home_more_ar);
         ll_home_more_ar.setOnClickListener(this);
+    }
+
+    @Override
+    public void getHomeJpSuccess(HomeJp homeJp) {
+        setJpRecyclerView(homeJp);
+
+        setZjRecyclerView(homeJp);
+
+        setZtRecyclerView(homeJp);
+
+        setHomeBanner(homeJp);
+    }
+
+    @Override
+    public void getHomeJpError(String errorMsg) {
+        Toast.makeText(context,"获取首页数据失败"+errorMsg,Toast.LENGTH_SHORT).show();
     }
 
     class GlideImageLoader extends ImageLoader {
