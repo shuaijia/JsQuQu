@@ -21,9 +21,11 @@ import org.zackratos.ultimatebar.UltimateBar;
  * Created by jia on 2017/7/4.
  * 人之所以能，是相信能
  */
-public class SplashActivity extends Activity{
+public class SplashActivity extends Activity {
 
-    private ImageView iv_splash;
+    //private ImageView iv_splash;
+
+    private TextView tv_splash;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +35,13 @@ public class SplashActivity extends Activity{
         UltimateBar ultimateBar = new UltimateBar(this);
         ultimateBar.setImmersionBar();
 
-        iv_splash= (ImageView) findViewById(R.id.iv_splash);
+        //iv_splash = (ImageView) findViewById(R.id.iv_splash);
+        tv_splash = (TextView) findViewById(R.id.tv_splash);
 
         // 设置属性动画  渐变
-        ObjectAnimator anim = ObjectAnimator.ofFloat(iv_splash, "alpha", 1.0f, 0f);
-        anim.setDuration(3000);// 动画持续时间
+        //ObjectAnimator anim = ObjectAnimator.ofFloat(iv_splash, "alpha", 1.0f, 0f);
+        ObjectAnimator anim = ObjectAnimator.ofFloat(tv_splash, "alpha", 1.0f, 0f);
+        anim.setDuration(1500);// 动画持续时间
 //        anim.setRepeatCount(3);
         anim.start();
 
@@ -50,7 +54,7 @@ public class SplashActivity extends Activity{
             @Override
             public void onAnimationEnd(Animator animation) {
                 // 动画结束，跳转引导页
-                startActivity(new Intent(SplashActivity.this,MainActivity.class));
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
                 finish();
             }
 

@@ -6,8 +6,13 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.mykj.qupingfang.R;
+
+import org.zackratos.ultimatebar.UltimateBar;
 
 /**
  * 这里的BaseActivity是之具有初始化界面操作的Activity 关于BaseActivity存在两个分支，
@@ -34,6 +39,11 @@ public abstract class BaseViewActivity<V, T extends BasePresenter<V>> extends Ac
         // 去除标题
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);// 锁定竖屏
+
+        //自定义状态栏和导航栏颜色
+        UltimateBar ultimateBar = new UltimateBar(this);
+        ultimateBar.setColorBar(ContextCompat.getColor(this, R.color.theme_color_primary));
+
         mPresenter = createPresenter();//创建presenter
         // 图片的宽度
         // 图片的宽度

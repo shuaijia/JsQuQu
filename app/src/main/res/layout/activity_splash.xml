@@ -6,11 +6,21 @@
     android:background="@mipmap/activity_splash"
     tools:context="com.mykj.qupingfang.SplashActivity">
 
-    <ImageView
-        android:id="@+id/iv_splash"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-       android:src="@mipmap/activity_splash_mark"
-        android:scaleType="fitXY"/>
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_splash"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:src="@mipmap/activity_splash_mark" />-->
+    <TextView
+        android:id="@+id/tv_splash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="210dp"
+        android:textSize="38sp"
+        android:textColor="#a2a2a2"
+        android:ems="1"
+        android:text="趣平方"/>
 </RelativeLayout>
