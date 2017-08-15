@@ -19,20 +19,24 @@ import rx.Observable;
  */
 public interface BaseService {
 
+    //登录验证
     @GET("index.php?r=site/login&device_type=ad1")
     Observable<Login> loginWithRxjava(@Query("mobile") String name, @Query("password") String pwd);
 
+    //获取课程界面数据
     @GET("index.php?r=resource/get-resource-by-gradex&device_type=ad1")
     Observable<Lesson> getLesson(@Query("grade_id") String grade_id, @Query("course_type") String course_type,
                                  @Query("page") String page, @Query("size") String size);
-
+    //获取首页数据
     @GET("index.php?r=resource/index-app&device_type=ad1")
     Observable<HomeJp> getHomeJp();
 
+    //获取首页中最近更新、课程精品的更多信息
     @GET("index.php?r=resource/resource-app&device_type=ad1")
     Observable<HomeLesson> getHomeLesson(@Query("resource_type") String resource_type, @Query("size") String size,
                                          @Query("page") String page);
 
+    //获取首页中视频专题的更多信息
     @GET("index.php?r=resource/resource-app&device_type=ad1")
     Observable<HomeSp> getHomeSp(@Query("resource_type") String resource_type, @Query("size") String size,
                                  @Query("page") String page);
