@@ -41,7 +41,7 @@ public class SplashActivity extends Activity {
         // 设置属性动画  渐变
         //ObjectAnimator anim = ObjectAnimator.ofFloat(iv_splash, "alpha", 1.0f, 0f);
         ObjectAnimator anim = ObjectAnimator.ofFloat(tv_splash, "alpha", 1.0f, 0f);
-        anim.setDuration(1500);// 动画持续时间
+        anim.setDuration(2500);// 动画持续时间
 //        anim.setRepeatCount(3);
         anim.start();
 

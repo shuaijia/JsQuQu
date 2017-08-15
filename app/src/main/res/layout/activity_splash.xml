@@ -18,9 +18,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="160dp"
         android:textSize="38sp"
         android:textColor="#a2a2a2"
         android:ems="1"
-        android:text="趣平方"/>
+        android:text="爱用趣平方"/>
 </RelativeLayout>
