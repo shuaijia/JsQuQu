@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+//import com.umeng.analytics.MobclickAgent;
+
 
 /**
  * 这里是关于Fragment的基础封装类
@@ -111,6 +113,8 @@ public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragme
     @Override
     public void onResume() {
         super.onResume();
+        //友盟统计页面跳转
+//        MobclickAgent.onPageStart(getClass().getSimpleName() + "");
         if(null!=mPresenter) {
             mPresenter.attachView((V) this);
         }
@@ -119,5 +123,7 @@ public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragme
     @Override
     public void onPause() {
         super.onPause();
+        //友盟统计页面跳转
+//        MobclickAgent.onPageEnd(getClass().getSimpleName() + "");
     }
 }

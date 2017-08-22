@@ -1,5 +1,6 @@
 package com.mykj.qupingfang;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -20,6 +21,7 @@ import com.mykj.qupingfang.home.fragment.HomeFragment;
 import com.mykj.qupingfang.lesson.fragment.LessonFragment;
 import com.mykj.qupingfang.mine.fragment.MineFragment;
 import com.mykj.qupingfang.utils.SharedPreferencesUtils;
+import com.umeng.socialize.UMShareAPI;
 
 import org.zackratos.ultimatebar.UltimateBar;
 
@@ -175,5 +177,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 tv.setTextColor(Color.parseColor("#a0a0a0"));//其他的设置为灰色
             }
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
     }
 }

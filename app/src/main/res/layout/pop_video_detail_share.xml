@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_video_complete_share"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:layout_alignParentBottom="true"
+    android:background="#ffffff"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:visibility="visible" >
+
+    <TextView
+        android:id="@+id/tv_video_complete_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/mh20.0dimens20.0dp"
+        android:text="分享到"
+        android:textColor="#333333"
+        android:textSize="17sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_video_complete_share_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/mh10.0dimens10.0dp"
+        android:layout_marginRight="@dimen/mh10.0dimens10.0dp"
+        android:layout_marginTop="@dimen/mh20.0dimens20.0dp"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/ll_video_complete_share_weixin_pengyouquan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/iv_video_complete_share_weixin_pengyouquan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/video_share_weixin_pengyouquan" />
+
+            <TextView
+                android:id="@+id/tv_video_complete_share_weixin_pengyouquan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_video_complete_share_weixin_pengyouquan"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/mh17.0dimens17.0dp"
+                android:text="朋友圈"
+                android:textColor="#666666"
+                android:textSize="11sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ll_video_complete_share_weixin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/iv_video_complete_share_weixin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/video_share_weixin" />
+
+            <TextView
+                android:id="@+id/tv_video_complete_share_weixin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_video_complete_share_weixin"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/mh17.0dimens17.0dp"
+                android:text="微信"
+                android:textColor="#666666"
+                android:textSize="11sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ll_video_complete_share_qq"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/iv_video_complete_share_qq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/video_share_qq" />
+
+            <TextView
+                android:id="@+id/tv_video_complete_share_qq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_video_complete_share_qq"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/mh17.0dimens17.0dp"
+                android:text="QQ好友"
+                android:textColor="#666666"
+                android:textSize="11sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ll_video_complete_share_sina"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="visible" >
+
+            <ImageView
+                android:id="@+id/iv_video_complete_share_sina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/video_share_sina" />
+
+            <TextView
+                android:id="@+id/tv_video_complete_share_sina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_video_complete_share_sina"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/mh17.0dimens17.0dp"
+                android:text="微博"
+                android:textColor="#666666"
+                android:textSize="11sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ll_video_complete_share_qzone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/iv_video_complete_share_qzone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/video_share_qzone" />
+
+            <TextView
+                android:id="@+id/tv_video_complete_share_qzone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_video_complete_share_qzone"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/mh17.0dimens17.0dp"
+                android:text="QQ空间"
+                android:textColor="#666666"
+                android:textSize="11sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_video_complete_share_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh0.5dimens0.5dp"
+        android:layout_marginTop="@dimen/mh21.0dimens21.0dp"
+        android:background="#E2E2E2" />
+
+    <TextView
+        android:id="@+id/tv_video_complete_share_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mh40.0dimens40.0dp"
+        android:layout_marginBottom="@dimen/mh5.0dimens5.0dp"
+        android:layout_marginTop="@dimen/mh5.0dimens5.0dp"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="#333333"
+        android:textSize="14sp" />
+
+</LinearLayout>

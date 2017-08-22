@@ -1,6 +1,7 @@
 package com.mykj.qupingfang.login.model;
 
 import com.mykj.qupingfang.domain.login.Login;
+import com.mykj.qupingfang.domain.login.SanFangLogin;
 import com.mykj.qupingfang.login.contract.LoginContract;
 import com.mykj.qupingfang.net.retrofit.HttpMethod;
 
@@ -28,6 +29,26 @@ public class LoginModelImpl implements LoginContract.LoginModel {
             @Override
             public void onNext(Login login) {
                 callBack.onSuccess(login);
+            }
+        });
+    }
+
+    @Override
+    public void uploadSanFangUserInfo(String type, String openid, String nickname, String gender, String headUrl, final LoginContract.UploadCallBack uploadCallBack) {
+        HttpMethod.getInstance().uploadSanFangUserInfo(type, openid, nickname, gender, headUrl, new Subscriber<SanFangLogin>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                uploadCallBack.onFail(e.toString());
+            }
+
+            @Override
+            public void onNext(SanFangLogin sanFangLogin) {
+                uploadCallBack.onSuccess(sanFangLogin);
             }
         });
     }

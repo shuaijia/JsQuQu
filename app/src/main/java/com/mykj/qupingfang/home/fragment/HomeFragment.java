@@ -14,6 +14,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -34,6 +35,11 @@ import com.mykj.qupingfang.home.presenter.HomePresenter;
 import com.mykj.qupingfang.net.retrofit.HttpMethod;
 import com.mykj.qupingfang.utils.ToastUtils;
 import com.mykj.qupingfang.view.JsPopupWindow;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMWeb;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
 
@@ -80,6 +86,20 @@ public class HomeFragment extends BaseFragment<HomeContract.HomeView, HomePresen
 
     // +号popupWindow
     private JsPopupWindow popWindow;
+    //分享的popupWindow
+    private JsPopupWindow sharePopWindow;
+    //微信朋友圈
+    private RelativeLayout ll_video_complete_share_weixin_pengyouquan;
+    //微信好友
+    private RelativeLayout ll_video_complete_share_weixin;
+    //QQ好友
+    private RelativeLayout ll_video_complete_share_qq;
+    //微博
+    private RelativeLayout ll_video_complete_share_sina;
+    //QQ空间
+    private RelativeLayout ll_video_complete_share_qzone;
+    //返回
+    private TextView tv_video_complete_share_cancel;
 
     @Override
     protected View initFragmentView(LayoutInflater inflater) {
@@ -108,6 +128,7 @@ public class HomeFragment extends BaseFragment<HomeContract.HomeView, HomePresen
     protected void initFragmentData(Bundle savedInstanceState) {
         context = getActivity();
         initPopWindow();
+        initSharePopWindow();
     }
 
     @Override
@@ -157,6 +178,55 @@ public class HomeFragment extends BaseFragment<HomeContract.HomeView, HomePresen
                 popWindow.dismiss();
 
                 break;
+            case R.id.ll_video_complete_share_weixin_pengyouquan:
+                sharePopWindow.dismiss();
+                // 开始分享
+                new ShareAction(getActivity())
+                        .setPlatform(SHARE_MEDIA.WEIXIN_CIRCLE)//传入平台
+                        .withMedia(getShareWeb())
+                        .setCallback(shareListener)//回调监听器
+                        .share();
+                break;
+            case R.id.ll_video_complete_share_weixin:
+                sharePopWindow.dismiss();
+                // 开始分享
+                new ShareAction(getActivity())
+                        .setPlatform(SHARE_MEDIA.WEIXIN)//传入平台
+                        .withMedia(getShareWeb())
+                        .setCallback(shareListener)//回调监听器
+                        .share();
+            case R.id.ll_video_complete_share_qq:
+                sharePopWindow.dismiss();
+                // 开始分享
+                new ShareAction(getActivity())
+                        .setPlatform(SHARE_MEDIA.QQ)//传入平台
+                        .withMedia(getShareWeb())
+                        .setCallback(shareListener)//回调监听器
+                        .share();
+                break;
+            case R.id.ll_video_complete_share_sina:
+                sharePopWindow.dismiss();
+                // 开始分享
+                new ShareAction(getActivity())
+                        .setPlatform(SHARE_MEDIA.SINA)//传入平台
+                        .withMedia(getShareWeb())
+                        .setCallback(shareListener)//回调监听器
+                        .share();
+                break;
+            case R.id.ll_video_complete_share_qzone:
+                sharePopWindow.dismiss();
+                // 开始分享
+                new ShareAction(getActivity())
+                        .setPlatform(SHARE_MEDIA.QZONE)//传入平台
+                        .withMedia(getShareWeb())
+                        .setCallback(shareListener)//回调监听器
+                        .share();
+                break;
+            case R.id.tv_video_complete_share_cancel:
+                if (sharePopWindow.isShowing()){
+                    sharePopWindow.dismiss();
+                }
+                break;
         }
     }
 
@@ -183,6 +253,83 @@ public class HomeFragment extends BaseFragment<HomeContract.HomeView, HomePresen
         ll_home_more_ar.setOnClickListener(this);
     }
 
+    private void initSharePopWindow() {
+        sharePopWindow = new JsPopupWindow.Builder()
+                .setContentViewId(R.layout.pop_video_detail_share)
+                .setContext(context)
+                .setOutSideCancle(true)
+                .setHeight(WindowManager.LayoutParams.WRAP_CONTENT)
+                .setWidth(WindowManager.LayoutParams.MATCH_PARENT)
+                .build();
+
+        ll_video_complete_share_weixin_pengyouquan = (RelativeLayout) sharePopWindow.getItemView(R.id.ll_video_complete_share_weixin_pengyouquan);
+        ll_video_complete_share_weixin_pengyouquan.setOnClickListener(this);
+
+        ll_video_complete_share_weixin = (RelativeLayout) sharePopWindow.getItemView(R.id.ll_video_complete_share_weixin);
+        ll_video_complete_share_weixin.setOnClickListener(this);
+
+        ll_video_complete_share_qq = (RelativeLayout) sharePopWindow.getItemView(R.id.ll_video_complete_share_qq);
+        ll_video_complete_share_qq.setOnClickListener(this);
+
+        ll_video_complete_share_sina = (RelativeLayout) sharePopWindow.getItemView(R.id.ll_video_complete_share_sina);
+        ll_video_complete_share_sina.setOnClickListener(this);
+
+        ll_video_complete_share_qzone = (RelativeLayout) sharePopWindow.getItemView(R.id.ll_video_complete_share_qzone);
+        ll_video_complete_share_qzone.setOnClickListener(this);
+
+        tv_video_complete_share_cancel = (TextView) sharePopWindow.getItemView(R.id.tv_video_complete_share_cancel);
+        tv_video_complete_share_cancel.setOnClickListener(this);
+    }
+
+    private UMWeb getShareWeb() {
+        UMImage image = new UMImage(getActivity(), R.mipmap.aa_discover);
+
+        UMWeb web = new UMWeb("http://blog.csdn.net/jiashuai94");
+        web.setTitle("欢迎光临我的CSDN");//标题
+        web.setThumb(image);  //缩略图
+        return web;
+    }
+
+    private UMShareListener shareListener = new UMShareListener() {
+        /**
+         * @descrption 分享开始的回调
+         * @param platform 平台类型
+         */
+        @Override
+        public void onStart(SHARE_MEDIA platform) {
+
+        }
+
+        /**
+         * @descrption 分享成功的回调
+         * @param platform 平台类型
+         */
+        @Override
+        public void onResult(SHARE_MEDIA platform) {
+            Toast.makeText(context, "成功了", Toast.LENGTH_LONG).show();
+        }
+
+        /**
+         * @descrption 分享失败的回调
+         * @param platform 平台类型
+         * @param t 错误原因
+         */
+        @Override
+        public void onError(SHARE_MEDIA platform, Throwable t) {
+            Toast.makeText(context, "失败" + t.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
+        /**
+         * @descrption 分享取消的回调
+         * @param platform 平台类型
+         */
+        @Override
+        public void onCancel(SHARE_MEDIA platform) {
+            Toast.makeText(context, "取消了", Toast.LENGTH_LONG).show();
+
+        }
+    };
+
     @Override
     public void getHomeJpSuccess(HomeJp homeJp) {
         setJpRecyclerView(homeJp);
@@ -208,6 +355,13 @@ public class HomeFragment extends BaseFragment<HomeContract.HomeView, HomePresen
         GridLayoutManager homeZjLayoutManager = new GridLayoutManager(context, 2);
         rv_home_zjgx.setLayoutManager(homeZjLayoutManager);
         rv_home_zjgx.setAdapter(homeZjAdapter);
+
+        homeZjAdapter.setOnItemClickListener(new HomeZjAdapter.OnItemClickListener() {
+            @Override
+            public void onClick(int position) {
+                sharePopWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
+            }
+        });
     }
 
     private void setZtRecyclerView(HomeJp homejp) {
@@ -264,7 +418,7 @@ public class HomeFragment extends BaseFragment<HomeContract.HomeView, HomePresen
 
     @Override
     public void getHomeJpError(String errorMsg) {
-        Toast.makeText(context,"获取首页数据失败"+errorMsg,Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "获取首页数据失败" + errorMsg, Toast.LENGTH_SHORT).show();
     }
 
     class GlideImageLoader extends ImageLoader {

@@ -17,4 +17,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="sharepop_anim_style">
+        <item name="android:windowEnterAnimation">@anim/share_pop_enter</item>
+        <item name="android:windowExitAnimation">@anim/share_pop_exit</item>
+    </style>
+
 </resources>

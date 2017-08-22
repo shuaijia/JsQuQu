@@ -189,6 +189,12 @@ public class MoreActivity extends BaseViewActivity<MoreContract.MoreView,MorePre
         rv_home_more.setLayoutManager(manager);
     }
 
+    /**
+     *
+     * @param context
+     * @param title
+     * @param type
+     */
     public static void actionMoreActivity(Context context, String title, String type) {
         Intent intent = new Intent();
         intent.putExtra("title", title);

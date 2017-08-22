@@ -26,6 +26,8 @@ public class HomeZjAdapter extends RecyclerView.Adapter<HomeZjAdapter.HomeZjView
     private Context context;
     private List<HomeJp.DataBean.ResourceZxBean> list;
 
+    private OnItemClickListener onItemClickListener;
+
     public HomeZjAdapter(Context context, List<HomeJp.DataBean.ResourceZxBean> list) {
         this.context = context;
         this.list = list;
@@ -38,7 +40,7 @@ public class HomeZjAdapter extends RecyclerView.Adapter<HomeZjAdapter.HomeZjView
     }
 
     @Override
-    public void onBindViewHolder(HomeZjAdapter.HomeZjViewHodler holder, int position) {
+    public void onBindViewHolder(HomeZjAdapter.HomeZjViewHodler holder, final int position) {
         HomeJp.DataBean.ResourceZxBean bean = list.get(position);
         Glide.with(context)
                 .load("http://test.lovek12.com" + bean.getImg_url())
@@ -50,6 +52,15 @@ public class HomeZjAdapter extends RecyclerView.Adapter<HomeZjAdapter.HomeZjView
         holder.tv_home_time.setText(bean.getDuration());
         holder.tv_home_grade.setText(GradeUtils.IntToGrade(bean.getGrade()+""));
         holder.tv_home_name.setText(bean.getTitle());
+
+        holder.iv_home_grade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(onItemClickListener!=null){
+                    onItemClickListener.onClick(position);
+                }
+            }
+        });
     }
 
     @Override
@@ -72,5 +83,13 @@ public class HomeZjAdapter extends RecyclerView.Adapter<HomeZjAdapter.HomeZjView
             tv_home_time = (TextView) itemView.findViewById(R.id.tv_home_time);
             iv_home_price = (ImageView) itemView.findViewById(R.id.iv_home_price);
         }
+    }
+
+    public interface OnItemClickListener{
+        void onClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 }

@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:background="@color/gray_background">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,7 +26,7 @@
             android:layout_height="@dimen/mh46.0dimens46.0dp"
             android:layout_marginLeft="@dimen/mh10.0dimens10.0dp"
             android:layout_marginRight="@dimen/mh10.0dimens10.0dp"
-            android:layout_marginTop="@dimen/mh115.0dimens115.0dp"
+            android:layout_marginTop="@dimen/mh80.0dimens80.0dp"
             android:background="@color/white_background"
             android:orientation="horizontal">
 
@@ -103,7 +102,121 @@
                 android:textSize="16sp" />
 
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mh100.0dimens100.0dp" >
 
+            <TextView
+                android:id="@+id/tv_loginactivity_fengexian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/mh4.0dimens4.0dp"
+                android:layout_marginRight="@dimen/mh4.0dimens4.0dp"
+                android:text="@string/activity_loginregist_sanfang_login"
+                android:textColor="@color/gray_verylight_text_color"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mh0.5dimens0.5dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/tv_loginactivity_fengexian"
+                android:background="@color/gray_verylight_text_color" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mh0.5dimens0.5dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_loginactivity_fengexian"
+                android:background="@color/gray_verylight_text_color" />
+        </RelativeLayout>
+
+        <!-- 三方登录按钮 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mh37.0dimens37.0dp"
+            android:weightSum="3"
+            android:orientation="horizontal" >
+
+            <!-- 微信登录按钮 -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/ib_loginactivity_wx"
+                    android:layout_width="@dimen/mh43.0dimens43.0dp"
+                    android:layout_height="@dimen/mh43.0dimens43.0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/activity_loginregist_login_weixin" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/mh6.0dimens6.0dp"
+                    android:text="@string/activity_loginregist_weixin_login"
+                    android:textColor="#999999"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- 新浪微博登录按钮 -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/ib_loginactivity_wb"
+                    android:layout_width="@dimen/mh43.0dimens43.0dp"
+                    android:layout_height="@dimen/mh43.0dimens43.0dp"
+                    android:src="@mipmap/activity_loginregist_login_sina"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/mh6.0dimens6.0dp"
+                    android:text="@string/activity_loginregist_sina_login"
+                    android:textColor="#999999"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!--QQ登录按钮-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/ib_loginactivity_qq"
+                    android:layout_width="@dimen/mh43.0dimens43.0dp"
+                    android:layout_height="@dimen/mh43.0dimens43.0dp"
+                    android:src="@mipmap/activity_loginregist_login_qq"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/mh6.0dimens6.0dp"
+                    android:text="@string/activity_loginregist_qq_login"
+                    android:textColor="#999999"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-
 </ScrollView>

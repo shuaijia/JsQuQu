@@ -7,6 +7,7 @@ import com.mykj.qupingfang.domain.home.HomeLesson;
 import com.mykj.qupingfang.domain.home.HomeSp;
 import com.mykj.qupingfang.domain.lesson.Lesson;
 import com.mykj.qupingfang.domain.login.Login;
+import com.mykj.qupingfang.domain.login.SanFangLogin;
 import com.mykj.qupingfang.domain.mine.CollectionLog;
 import com.mykj.qupingfang.domain.mine.DeleteMyCollection;
 
@@ -138,6 +139,22 @@ public class HttpMethod {
      */
     public void login(String name, String pwd, Subscriber<Login> subscriber) {
         service.loginWithRxjava(name, pwd)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /**
+     * 三方登录
+     * @param type
+     * @param openid
+     * @param nickname
+     * @param gender
+     * @param headUrl
+     * @param subscriber
+     */
+    public void uploadSanFangUserInfo(String type, String openid, String nickname, String gender, String headUrl, Subscriber<SanFangLogin> subscriber) {
+        service.sanFangLoginWithRxjava(type,openid,nickname,gender,headUrl)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);

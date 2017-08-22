@@ -5,6 +5,7 @@ import com.mykj.qupingfang.domain.home.HomeLesson;
 import com.mykj.qupingfang.domain.home.HomeSp;
 import com.mykj.qupingfang.domain.lesson.Lesson;
 import com.mykj.qupingfang.domain.login.Login;
+import com.mykj.qupingfang.domain.login.SanFangLogin;
 import com.mykj.qupingfang.domain.mine.CollectionLog;
 import com.mykj.qupingfang.domain.mine.DeleteMyCollection;
 
@@ -22,6 +23,12 @@ public interface BaseService {
     //登录验证
     @GET("index.php?r=site/login&device_type=ad1")
     Observable<Login> loginWithRxjava(@Query("mobile") String name, @Query("password") String pwd);
+
+    //三方登录验证
+    @GET("index.php?r=site/login&device_type=ad1")
+    Observable<SanFangLogin> sanFangLoginWithRxjava(@Query("type") String type, @Query("open_id") String open_id,
+                                                    @Query("nickname") String nickname, @Query("sex") String sex,
+                                                    @Query("avatar_url") String avatar_url);
 
     //获取课程界面数据
     @GET("index.php?r=resource/get-resource-by-gradex&device_type=ad1")

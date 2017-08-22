@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.mykj.qupingfang.R;
+//import com.umeng.analytics.MobclickAgent;
 
 import org.zackratos.ultimatebar.UltimateBar;
 
@@ -61,6 +62,12 @@ public abstract class BaseViewActivity<V, T extends BasePresenter<V>> extends Ac
     @Override
     protected void onResume() {
         super.onResume();
+
+        // 集成友盟相关的统计API
+        //统计应用时长的(也就是Session时长,当然还包括一些其他功能)
+//        MobclickAgent.onResume(this);
+//        MobclickAgent.onPageStart(getClass().getSimpleName() + "");
+
         if(null!=mPresenter) {
             mPresenter.attachView((V) this);
         }
@@ -73,6 +80,12 @@ public abstract class BaseViewActivity<V, T extends BasePresenter<V>> extends Ac
     @Override
     protected void onPause() {
         super.onPause();
+
+        // 集成友盟相关的统计API
+        //统计应用时长的(也就是Session时长,当然还包括一些其他功能)
+//        MobclickAgent.onPause(this);
+//        MobclickAgent.onPageStart(getClass().getSimpleName() + "");
+
         pause();
     }
 

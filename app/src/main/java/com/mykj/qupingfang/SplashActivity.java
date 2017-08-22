@@ -42,7 +42,7 @@ public class SplashActivity extends Activity {
         //ObjectAnimator anim = ObjectAnimator.ofFloat(iv_splash, "alpha", 1.0f, 0f);
         ObjectAnimator anim = ObjectAnimator.ofFloat(tv_splash, "alpha", 1.0f, 0f);
         anim.setDuration(2500);// 动画持续时间
-//        anim.setRepeatCount(3);
+//        anim.setRepeatCount(1);
         anim.start();
 
         anim.addListener(new Animator.AnimatorListener() {
