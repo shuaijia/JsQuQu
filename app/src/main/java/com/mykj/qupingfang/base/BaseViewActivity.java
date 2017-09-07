@@ -50,7 +50,7 @@ public abstract class BaseViewActivity<V, T extends BasePresenter<V>> extends Ac
         // 图片的宽度
         wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
         screenWidth = wm.getDefaultDisplay().getWidth();
-        screenHeight=wm.getDefaultDisplay().getHeight();
+        screenHeight = wm.getDefaultDisplay().getHeight();
 
         initActivityView(savedInstanceState);
         findViewById();
@@ -68,13 +68,12 @@ public abstract class BaseViewActivity<V, T extends BasePresenter<V>> extends Ac
 //        MobclickAgent.onResume(this);
 //        MobclickAgent.onPageStart(getClass().getSimpleName() + "");
 
-        if(null!=mPresenter) {
+        if (null != mPresenter) {
             mPresenter.attachView((V) this);
         }
 
         resume();
     }
-
 
 
     @Override
@@ -94,16 +93,19 @@ public abstract class BaseViewActivity<V, T extends BasePresenter<V>> extends Ac
      * 关于Activity的界面填充的抽象方法，需要子类必须实现
      */
     protected abstract void initActivityView(Bundle savedInstanceState);
+
     /**
      * 加载页面元素
      */
     protected abstract void findViewById();
+
     /**
      * 创建Presenter 对象
      *
      * @return
      */
     protected abstract T createPresenter();
+
     protected abstract void getData();
 
     @Override
@@ -119,7 +121,7 @@ public abstract class BaseViewActivity<V, T extends BasePresenter<V>> extends Ac
     protected void onDestroy() {
         // TODO Auto-generated method stub
         super.onDestroy();
-        if(null!=mPresenter) {
+        if (null != mPresenter) {
             mPresenter.detachView();
         }
         destroy();
@@ -128,35 +130,35 @@ public abstract class BaseViewActivity<V, T extends BasePresenter<V>> extends Ac
     /**
      * 填写需要在onResume()方法中执行的操作
      */
-    public void resume(){
+    public void resume() {
 
     }
 
     /**
      * 填写需要在onPause()方法中执行的操作
      */
-    public void pause(){
+    public void pause() {
 
     }
 
     /**
      * 填写需要在onDestroy()方法中执行的操作
      */
-    public void destroy(){
+    public void destroy() {
 
     }
 
     /**
      * 获取屏幕宽度
      */
-    public int getScreenWidth(){
+    public int getScreenWidth() {
         return this.screenWidth;
     }
 
     /**
      * 获取屏幕高度
      */
-    public int getScreenHeight(){
+    public int getScreenHeight() {
         return this.screenHeight;
     }
 

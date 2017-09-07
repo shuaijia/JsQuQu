@@ -341,6 +341,11 @@ public class HomeFragment extends BaseFragment<HomeContract.HomeView, HomePresen
         setHomeBanner(homeJp);
     }
 
+    @Override
+    public void getHomeJpError(String errorMsg) {
+        Toast.makeText(context, "获取首页数据失败" + errorMsg, Toast.LENGTH_SHORT).show();
+    }
+
     private void setJpRecyclerView(HomeJp homejp) {
         homeJpList = homejp.getData().getResource_jp();
         homeJpAdapter = new HomeJpAdapter(context, homeJpList);
@@ -414,11 +419,6 @@ public class HomeFragment extends BaseFragment<HomeContract.HomeView, HomePresen
 //                        Log.e(TAG, "onPageScrollStateChanged: "+state );
             }
         });
-    }
-
-    @Override
-    public void getHomeJpError(String errorMsg) {
-        Toast.makeText(context, "获取首页数据失败" + errorMsg, Toast.LENGTH_SHORT).show();
     }
 
     class GlideImageLoader extends ImageLoader {
