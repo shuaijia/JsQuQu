@@ -56,7 +56,6 @@ public abstract class BaseViewActivity<V, T extends BasePresenter<V>> extends Ac
         findViewById();
         getData();
 
-
     }
 
     @Override
