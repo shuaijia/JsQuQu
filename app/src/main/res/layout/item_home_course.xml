@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:columnCount="2"
+    android:padding="@dimen/mh5.0dimens5.0dp"
+    android:rowCount="2"
+    android:background="#ffffff">
+
+    <ImageView
+        android:id="@+id/iv_home_course_first"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_column="0"
+        android:layout_row="0"
+        android:background="@drawable/shape_home_item"
+        android:scaleType="fitXY"
+        android:layout_margin="5dp"
+        android:src="@mipmap/frgament_lesson_video_bg" />
+
+    <ImageView
+        android:id="@+id/iv_home_course_second"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:background="@drawable/shape_home_item"
+        android:scaleType="fitXY"
+        android:layout_margin="5dp"
+        android:src="@mipmap/frgament_lesson_video_bg" />
+
+    <ImageView
+        android:id="@+id/iv_home_course_third"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_column="0"
+        android:layout_row="1"
+        android:background="@drawable/shape_home_item"
+        android:scaleType="fitXY"
+        android:layout_margin="5dp"
+        android:src="@mipmap/frgament_lesson_video_bg" />
+
+    <ImageView
+        android:id="@+id/iv_home_course_fourth"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_column="1"
+        android:layout_row="1"
+        android:background="@drawable/shape_home_item"
+        android:scaleType="fitXY"
+        android:layout_margin="5dp"
+        android:src="@mipmap/frgament_lesson_video_bg" />
+
+
+</GridLayout>

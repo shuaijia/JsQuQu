@@ -30,6 +30,7 @@ import com.mykj.qupingfang.adapter.home.HomeZtAdapter;
 import com.mykj.qupingfang.base.BaseFragment;
 import com.mykj.qupingfang.domain.home.HomeJp;
 import com.mykj.qupingfang.home.activity.MoreActivity;
+import com.mykj.qupingfang.home.activity.NewLayoutActivity;
 import com.mykj.qupingfang.home.contract.HomeContract;
 import com.mykj.qupingfang.home.presenter.HomePresenter;
 import com.mykj.qupingfang.net.retrofit.HttpMethod;
@@ -161,6 +162,8 @@ public class HomeFragment extends BaseFragment<HomeContract.HomeView, HomePresen
             case R.id.ll_home_more_search:
 
                 ToastUtils.showToastSafe(context, "搜索");
+                Intent intent = new Intent(context, NewLayoutActivity.class);
+                startActivity(intent);
                 popWindow.dismiss();
 
                 break;
@@ -341,11 +344,6 @@ public class HomeFragment extends BaseFragment<HomeContract.HomeView, HomePresen
         setHomeBanner(homeJp);
     }
 
-    @Override
-    public void getHomeJpError(String errorMsg) {
-        Toast.makeText(context, "获取首页数据失败" + errorMsg, Toast.LENGTH_SHORT).show();
-    }
-
     private void setJpRecyclerView(HomeJp homejp) {
         homeJpList = homejp.getData().getResource_jp();
         homeJpAdapter = new HomeJpAdapter(context, homeJpList);
@@ -421,7 +419,12 @@ public class HomeFragment extends BaseFragment<HomeContract.HomeView, HomePresen
         });
     }
 
-    class GlideImageLoader extends ImageLoader {
+    @Override
+    public void getHomeJpError(String errorMsg) {
+        Toast.makeText(context, "获取首页数据失败" + errorMsg, Toast.LENGTH_SHORT).show();
+    }
+
+    public static class GlideImageLoader extends ImageLoader {
         @Override
         public void displayImage(Context context, Object path, ImageView imageView) {
             Glide.with(context)

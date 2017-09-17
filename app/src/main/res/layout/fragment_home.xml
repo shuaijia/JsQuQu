@@ -28,7 +28,7 @@
             android:src="@mipmap/fragment_home_add" />
     </RelativeLayout>
 
-    <ScrollView
+    <com.mykj.qupingfang.view.DiyScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
@@ -164,6 +164,6 @@
                 android:layout_below="@+id/rl_home_spzt" />
 
         </LinearLayout>
-    </ScrollView>
+    </com.mykj.qupingfang.view.DiyScrollView>
 
 </LinearLayout>
