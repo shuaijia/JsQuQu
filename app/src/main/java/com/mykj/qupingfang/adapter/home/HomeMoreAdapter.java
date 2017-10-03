@@ -55,7 +55,7 @@ public class HomeMoreAdapter extends RecyclerView.Adapter<HomeMoreAdapter.ViewHo
         return list == null ? 0 : list.size();//返回Item个数
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView iv_more_pic;
         public TextView tv_more_name;
 
