@@ -3,6 +3,7 @@ package com.mykj.qupingfang.home.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -230,7 +231,9 @@ public class MoreActivity extends BaseViewActivity<MoreContract.MoreView, MorePr
                     return makeMovementFlags(dragFlags, swipeFlags);
                 } else {
                     int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
-                    int swipeFlags = 0;
+                    //注意：和拖拽的区别就在这里
+                    //int swipeFlags = 0;//拖拽
+                    int swipeFlags = ItemTouchHelper.START|ItemTouchHelper.END;
                     return makeMovementFlags(dragFlags, swipeFlags);
                 }
             }
@@ -266,10 +269,34 @@ public class MoreActivity extends BaseViewActivity<MoreContract.MoreView, MorePr
                 }
                 return true;
             }
-
+            //实现滑动删除
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-
+                int adpterPosition = viewHolder.getAdapterPosition();
+                if (title.equals("最近更新") || title.equals("课程精品")) {
+                    homeMoreAdapter.notifyItemRemoved(adpterPosition);
+                    lessonList.remove(adpterPosition);
+                } else if (title.equals("视频专题")) {
+                    homeMoreSpAdapter.notifyItemRemoved(adpterPosition);
+                    SpList.remove(adpterPosition);
+                }
+            }
+            //当长按item刚开始拖拽的时候调用
+            @Override
+            public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
+                if (actionState != ItemTouchHelper.ACTION_STATE_IDLE){
+                    //给被拖拽的item设置一个深颜色背景
+                    viewHolder.itemView.setBackgroundColor(Color.LTGRAY);
+                }
+                super.onSelectedChanged(viewHolder, actionState);
+            }
+            //当完成拖拽手指松开的时候调用
+            @Override
+            public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+                super.clearView(recyclerView, viewHolder);
+                //给已经完成拖拽的item回复初始的背景
+                //这里我们设置的背景的颜色尽量和你item在xml中的颜色保持一致
+                viewHolder.itemView.setBackgroundColor(Color.WHITE);
             }
         });
         itemTouchHelper.attachToRecyclerView(rv_home_more);
