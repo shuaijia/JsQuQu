@@ -216,7 +216,8 @@ public class MoreActivity extends BaseViewActivity<MoreContract.MoreView, MorePr
             }
         });
 
-        //主要就要使用到 ItemTouchHelper，ItemTouchHelper 一个帮助开发人员处理拖拽和滑动删除的实现类，它能够让你非常容易实现侧滑删除、拖拽的功能。
+        //主要就要使用到 ItemTouchHelper，ItemTouchHelper 一个帮助开发人员处理拖拽和滑动删除的实现类，
+        // 它能够让你非常容易实现侧滑删除、拖拽的功能。
         ItemTouchHelper itemTouchHelper
                 = new ItemTouchHelper(new ItemTouchHelper.Callback() {
             //getMovementFlags() 用于设置是否处理拖拽事件和滑动事件，以及拖拽和滑动操作的方向
